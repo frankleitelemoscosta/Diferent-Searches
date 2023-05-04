@@ -25,3 +25,12 @@ void Swap(Item *a, Item *b);
 void LImprime(Lista *l);
 
 #endif
+
+//end code
+
+
+/*
+ O ponteiro first alem de ser um checkpoint tambem desempenha a função de guardar um indice
+
+
+*/
