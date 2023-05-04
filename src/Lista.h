@@ -8,7 +8,8 @@
 #define MAXTAM 10
 
 typedef struct Item{
-	int val;
+	int x;
+  	int y;
 }Item;
 
 typedef struct Lista{
@@ -25,6 +26,7 @@ void Swap(Item *a, Item *b);
 void LImprime(Lista *l);
 
 #endif
+<<<<<<< HEAD
 
 //end code
 
@@ -34,3 +36,5 @@ void LImprime(Lista *l);
 
 
 */
+=======
+>>>>>>> db7e342fbc62c2f2dd22478614a525719a50370e

@@ -38,6 +38,7 @@ void LRemove(Lista *l, Item d){
 	if(l->first == l->last)
 	{
 		printf("LISTA VAZIA!\n");
+<<<<<<< HEAD
 	}
 	else
 	{
@@ -47,6 +48,12 @@ void LRemove(Lista *l, Item d){
 			{
 			
 				Swap( &l->vet[i], &l->vet[i+1]);
+=======
+	else{
+		for(int i=l->first; i<l->last; i++)
+			if((l->vet[i].x == d.x) && (l->vet[i].y == d.y)){
+				Swap(&l->vet[i], &l->vet[i+1]);
+>>>>>>> db7e342fbc62c2f2dd22478614a525719a50370e
 				ok = true;	
 			
 			}
@@ -60,6 +67,7 @@ void LRemove(Lista *l, Item d){
 }
 
 
+<<<<<<< HEAD
 void LImprime(Lista *l)
 {
 
@@ -83,3 +91,10 @@ do tipo item que contem o que deve ser guardado na lista naquela posição.
 
  A função LImprime mostra todos os elementos que foram inseridos na lista
 */
+=======
+void LImprime(Lista *l){
+	for(int i=l->first; i<l->last; i++)
+		printf("%d/%d", l->vet[i].x, l->vet[i].y);
+	printf("\n");
+}
+>>>>>>> db7e342fbc62c2f2dd22478614a525719a50370e
