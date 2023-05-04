@@ -8,7 +8,8 @@
 #define MAXTAM 10
 
 typedef struct Item{
-	int val;
+	int x;
+  	int y;
 }Item;
 
 typedef struct Lista{

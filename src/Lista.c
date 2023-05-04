@@ -28,7 +28,7 @@ void LRemove(Lista *l, Item d){
 		printf("LISTA VAZIA!\n");
 	else{
 		for(int i=l->first; i<l->last; i++)
-			if(l->vet[i].val == d.val){
+			if((l->vet[i].x == d.x) && (l->vet[i].y == d.y)){
 				Swap(&l->vet[i], &l->vet[i+1]);
 				ok = true;	
 			}
@@ -41,6 +41,6 @@ void LRemove(Lista *l, Item d){
 
 void LImprime(Lista *l){
 	for(int i=l->first; i<l->last; i++)
-		printf("%d\t", l->vet[i].val);
+		printf("%d/%d", l->vet[i].x, l->vet[i].y);
 	printf("\n");
 }
