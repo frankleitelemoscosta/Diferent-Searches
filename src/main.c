@@ -1,19 +1,28 @@
 #include<stdio.h>
-#include"Lista.c"
+#include"Lista.h"
 
 
 int main()
 {
-  Lista L;
-  Item aux;
-  int num=0, x=0,y=0;
-  while(num!=10){
-    aux.x=x;
-    aux.y=y;
-    LInsert(&L,aux);
-    num++;x++;y++;
-  }
-LImprime(&L);
+ 	Lista l;
+	Item aux;
+
+	FLVazia(&l);
+
+	aux.x = 10;
+  aux.y = 5;
+	LInsert(&l, aux);
+	aux.x = 20;
+	LInsert(&l, aux);
+	aux.y = 30;
+	LInsert(&l, aux);
+
+	LImprime(&l);
+
+	aux.x = 2;
+	LRemove(&l, aux);
+
+	LImprime(&l);
 
 
 

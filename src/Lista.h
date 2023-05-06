@@ -22,19 +22,16 @@ typedef struct Lista{
 void FLVazia(Lista *l);
 void LInsert(Lista *l, Item d);
 void LRemove(Lista *l, Item d);
-void Swap(Item *a, Item *b);
+void Swap(Item *posicao_procurada, Item *posicao_sucessora);
 void LImprime(Lista *l);
 
 #endif
-<<<<<<< HEAD
 
 //end code
 
 
 /*
  O ponteiro first alem de ser um checkpoint tambem desempenha a função de guardar um indice
-
+a lista é um vetor estático onde se percorre usando first e last
 
 */
-=======
->>>>>>> db7e342fbc62c2f2dd22478614a525719a50370e
