@@ -3,6 +3,7 @@
 #include"Lista.h"
 #include"File.h"
 #include"matriz.h"
+#include"PilhaDFSeBFS.h"
 
 
 
@@ -24,6 +25,9 @@ int main()
 
 	//foi utilizado apenas para ver se estava funcionando o preenchimento da matriz, não tem uso depois de averiguado
 		MostrandoMatriz(&M,&Ordem);
+
+	//aqui é chamado o método que realiza o caminhamento em profundida
+		CaminhamentoDFS(&M,&Ordem);
 
  	/*Lista l;
 	Item aux;
