@@ -31,6 +31,8 @@ void Pop(Pilha *p, Item *d);
 void PImprime(Pilha *p);
 
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem);
+void Desimpilhando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha );
+void Reset();
 
 #endif
 
