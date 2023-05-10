@@ -37,3 +37,19 @@ void Reset();
 #endif
 
 //fim do código
+
+/*
+Este código se trata das assinaturas referentes a pilha, juntamente as assinaturas dos métodos de caminhamento em profundidade e em largura 
+
+as structs são componentes da pilha, sendo:
+Item possui o int que armazena cada item que esta na pilha
+Block se trata de cada nó que a pilha tem
+Pilha se trata da cabeça e da cauda da pilha
+
+Os métodos da pilha propriamente dita são:
+FPvazia recebe um ponteiro do tipo pilha para que seja possivel acessar os ponteiros da cauda e da cabeça e verificar se eles não são null, se forem justifica dizer que a lista não tem elementos, pois esta apontando para nada
+
+Push insere elementos na cabeça da lista e vai linkando o prox com o elemento anterior
+
+o POP retira os elementos do topo da lista, recebe um ponteiro da pilha para acessar o top e vai mudando o ponteiro que a ponto para o nó do topo, fazendo ele apontar para o elemento anterior da cabeça antes de deleta-la
+*/
