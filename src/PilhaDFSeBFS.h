@@ -11,7 +11,8 @@ typedef struct Block Block;
 typedef struct Pilha Pilha;
 
 struct Item{
-	int val;
+	int Linha;
+	int Coluna;
 };
 
 struct Block{

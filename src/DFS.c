@@ -1,5 +1,6 @@
 #include"PilhaDFSeBFS.h"
 #include"matriz.h"//temporario até terminar os testes, assim que acabar deve ser apagado
+#include"PilhaDFSeBFS.h"
 
 void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha){
 
@@ -39,6 +40,8 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
         int Linha = 0;
         int Coluna = 0;
         bool parada = true;
+        Pilha Ponteiro;
+        Item Ponteiro_Item;
     //fim das variaveis
 
     while(parada == true){
@@ -85,6 +88,15 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
     //aqui se faz a escolha para onde andar
         (escolha == 1)?(Coluna = Coluna + 1):((escolha == 2)?(Linha = Linha + 1):((escolha == 3)?(Linha = Linha + 1, Coluna = Coluna + 1):((escolha == 4)?(Coluna = Coluna - 1):((escolha == 5)?(Linha = Linha - 1):(printf(" "))
         ))));
+
+        Ponteiro_Item.Linha = Linha;
+        Ponteiro_Item.Coluna = Coluna;
+
+        FPVazia(&Ponteiro);
+
+        Push(&Ponteiro,Ponteiro_Item);
+
+        PImprime(&Ponteiro);
 
         MostrandoMatriz(M,Ordem,&Linha,&Coluna);//apenas para teste, assim que acabar deve ser apagado
 
