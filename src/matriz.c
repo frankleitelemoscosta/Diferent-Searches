@@ -28,14 +28,17 @@ void Preencher(FILE **File, Matriz *M, signed short int *Ordem){
         fclose(*File);
 }
 
-void MostrandoMatriz(Matriz *M, signed short int *Ordem)
+void MostrandoMatriz(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna)
 {
     //mostra elemento por elemento da matriz
         for (int i = 0; i < *Ordem; i++)
             {
                 for (int j = 0; j < *Ordem; j++)
                 {
+                    if( i != *Linha || j != *Coluna)
                     printf("[%c] ",M->MAT[i][j].item);
+                    else
+                    printf("[J] ");
                 }
                 printf("\n");
         }

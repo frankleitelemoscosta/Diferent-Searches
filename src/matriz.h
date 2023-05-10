@@ -14,6 +14,6 @@ typedef struct Matriz
 
 void Alocacao(Matriz *M,signed short int *Order);
 void Preencher(FILE **File, Matriz *M, signed short int *Ordem);
-void MostrandoMatriz(Matriz *M, signed short int *Ordem);
+void MostrandoMatriz(Matriz *M, signed short int *Ordem, int *Linha, int *Coluna);
 
 #endif

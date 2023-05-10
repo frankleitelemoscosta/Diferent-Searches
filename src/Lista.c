@@ -1,8 +1,8 @@
 #include "Lista.h"
 
-void Swap(Item *posicao_procurada, Item *Posicao_sucessora){
+void Swap(ItemL *posicao_procurada, ItemL *Posicao_sucessora){
 	
-	Item aux;
+	ItemL aux;
 
 	aux = *posicao_procurada;
 	*posicao_procurada  = *Posicao_sucessora;
@@ -17,7 +17,7 @@ void FLVazia(Lista *l){
 
 }
 
-void LInsert(Lista *l, Item d){
+void LInsert(Lista *l, ItemL d){
 	
 	if (l->last >= MAXTAM)
 	{
@@ -32,7 +32,7 @@ void LInsert(Lista *l, Item d){
 	}
 }
 
-void LRemove(Lista *l, Item d){
+void LRemove(Lista *l, ItemL d){
 
 	bool ok = false;
 

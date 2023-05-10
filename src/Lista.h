@@ -7,22 +7,22 @@
 
 #define MAXTAM 10
 
-typedef struct Item{
+typedef struct ItemL{
 	int x;
   	int y;
-}Item;
+}ItemL;
 
 typedef struct Lista{
-	Item vet[MAXTAM];
+	ItemL vet[MAXTAM];
 	int first;
 	int last;
 }Lista;
 
 
 void FLVazia(Lista *l);
-void LInsert(Lista *l, Item d);
-void LRemove(Lista *l, Item d);
-void Swap(Item *posicao_procurada, Item *posicao_sucessora);
+void LInsert(Lista *l, ItemL d);
+void LRemove(Lista *l, ItemL d);
+void Swap(ItemL *posicao_procurada, ItemL *posicao_sucessora);
 void LImprime(Lista *l);
 
 #endif
