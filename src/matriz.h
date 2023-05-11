@@ -1,10 +1,12 @@
 #ifndef __MATRIZ_H
 #define __MATRIZ_H
 #include<stdio.h>
+#include<stdbool.h>
 
 typedef struct ItemM
 {
     char item;
+    bool validacao;
 }ItemM;
 
 typedef struct Matriz

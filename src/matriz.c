@@ -22,6 +22,7 @@ void Preencher(FILE **File, Matriz *M, signed short int *Ordem){
 			for (int j = 0; j < *Ordem; j++)
 			{
 				fscanf(*File,"%s",&M->MAT[i][j].item);
+                M->MAT[i][j].validacao = false;
 			}
 		}
     //fim
@@ -38,7 +39,7 @@ void MostrandoMatriz(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna)
                     if( i != *Linha || j != *Coluna)
                     printf("[%c] ",M->MAT[i][j].item);
                     else
-                    printf("[J] ");
+                    printf("[@] ");
                 }
                 printf("\n");
         }

@@ -1,31 +1,42 @@
 #include"PilhaDFSeBFS.h"
 #include"matriz.h"//temporario até terminar os testes, assim que acabar deve ser apagado
-#include"PilhaDFSeBFS.h"
+#include<stdbool.h>
 
-void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha){
+
+void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item){
+
+    bool sinal = false;
 
     //para decidir onde deve se caminhar
         if((*Linha + 1) < *Ordem)
         {
-            (M->MAT[*Linha + 1][*Coluna].item != '#')?(*escolha = 2):(printf("\n"));
+            (M->MAT[*Linha + 1][*Coluna].item != '#' && M->MAT[*Linha + 1][*Coluna].validacao != true && sinal == false)?(*escolha = 2,sinal = true):(sinal = false);
         }
         if((*Coluna - 1) > -1)
         {
-            (M->MAT[*Linha][*Coluna - 1].item != '#')?(*escolha == 4):(printf("\n"));
+            (M->MAT[*Linha][*Coluna - 1].item != '#' && M->MAT[*Linha][*Coluna - 1].validacao != true && sinal == false)?(*escolha = 4,sinal = true):(sinal = false);
         }
         if(((*Linha + 1) < *Ordem) && ((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha + 1][*Coluna + 1].item != '#')?(*escolha == 3):(printf("\n"));
+            (M->MAT[*Linha + 1][*Coluna + 1].item != '#' && M->MAT[*Linha + 1][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 3,sinal = true):(sinal = false);
         }
         if(((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha][*Coluna + 1].item != '#')?(*escolha == 1):(printf("\n"));
+            (M->MAT[*Linha][*Coluna + 1].item != '#' && M->MAT[*Linha][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 1,sinal = true):(sinal = false);
         }
         if((*Linha - 1) > -1)
         {
-            (M->MAT[*Linha - 1][*Coluna].item != '#')?(*escolha == 5):(printf("\n"));
+            (M->MAT[*Linha - 1][*Coluna].item != '#' && M->MAT[*Linha - 1][*Coluna].validacao != true && sinal == false)?(*escolha = 5,sinal = true):(sinal = false);
         }
     //fim da tomada de decisão
+
+    if(sinal == true)
+    {
+        Pop(Ponteiro,Ponteiro_Item);
+        *Linha = Ponteiro->top->data.Linha ;
+        *Coluna = Ponteiro->top->data.Coluna;
+    }
+    
 
 }
 
@@ -44,45 +55,49 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
         Item Ponteiro_Item;
     //fim das variaveis
 
+    FPVazia(&Ponteiro);
+
     while(parada == true){
+
+        M->MAT[Linha][Coluna].validacao = true;
 
     //se for encontrado o interrogação o loop é quebrado com o break
         (M->MAT[Linha][Coluna].item == '?')?(exit(-1)):(parada = true);
 
-        if((Linha + 1) < *Ordem)
+        if((Linha + 1) < *Ordem && escolha == 2)
         {
-            (M->MAT[Linha + 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha)):(printf("\n"));
+            (M->MAT[Linha + 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
         }
         else if(escolha == 2){
-            Selecionando(M,Ordem,&Linha,&Coluna,&escolha);
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
-        if((Coluna - 1) > -1)
+        if((Coluna - 1) > -1 && escolha == 4)
         {
-            (M->MAT[Linha][Coluna - 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha)):(printf("\n"));
+            (M->MAT[Linha][Coluna - 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
         }
         else if(escolha == 4){
-            Selecionando(M,Ordem,&Linha,&Coluna,&escolha);
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
-        if(((Linha + 1) < *Ordem) && ((Coluna + 1) < *Ordem))
+        if(((Linha + 1) < *Ordem) && ((Coluna + 1) < *Ordem) && escolha == 3)
         {
-            (M->MAT[Linha + 1][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha)):(printf("\n"));
+            (M->MAT[Linha + 1][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
         }
         else if(escolha == 3){
-            Selecionando(M,Ordem,&Linha,&Coluna,&escolha);
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
-        if(((Coluna + 1) < *Ordem))
+        if(((Coluna + 1) < *Ordem) && escolha == 1)
         {
-            (M->MAT[Linha][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha)):(printf("\n"));
+            (M->MAT[Linha][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
         }
         else if(escolha == 1){
-            Selecionando(M,Ordem,&Linha,&Coluna,&escolha);
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
-        if((Linha - 1) > -1)
+        if((Linha - 1) > -1 && escolha == 5)
         {
-            (M->MAT[Linha - 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha)):(printf("\n"));
+            (M->MAT[Linha - 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
         }
         else if(escolha == 5){
-            Selecionando(M,Ordem,&Linha,&Coluna,&escolha);
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
 
     //aqui se faz a escolha para onde andar
@@ -91,8 +106,6 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
         Ponteiro_Item.Linha = Linha;
         Ponteiro_Item.Coluna = Coluna;
-
-        FPVazia(&Ponteiro);
 
         Push(&Ponteiro,Ponteiro_Item);
 
