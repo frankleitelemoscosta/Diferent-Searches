@@ -1,4 +1,4 @@
-#include"PilhaDFSeBFS.h"
+#include"PilhaDFS.h"
 #include"matriz.h"//temporario até terminar os testes, assim que acabar deve ser apagado
 #include<stdbool.h>
 
@@ -10,28 +10,29 @@ void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signe
     //para decidir onde deve se caminhar
         if((*Linha + 1) < *Ordem)
         {
-            (M->MAT[*Linha + 1][*Coluna].item != '#' && M->MAT[*Linha + 1][*Coluna].validacao != true && sinal == false)?(*escolha = 2,sinal = true):(sinal = false);
+            (M->MAT[*Linha + 1][*Coluna].item != '#' && M->MAT[*Linha + 1][*Coluna].validacao != true && sinal == false)?(*escolha = 2,sinal = true):(printf("\n"));
         }
         if((*Coluna - 1) > -1)
         {
-            (M->MAT[*Linha][*Coluna - 1].item != '#' && M->MAT[*Linha][*Coluna - 1].validacao != true && sinal == false)?(*escolha = 4,sinal = true):(sinal = false);
+            (M->MAT[*Linha][*Coluna - 1].item != '#' && M->MAT[*Linha][*Coluna - 1].validacao != true && sinal == false)?(*escolha = 4,sinal = true):(printf("\n"));
         }
         if(((*Linha + 1) < *Ordem) && ((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha + 1][*Coluna + 1].item != '#' && M->MAT[*Linha + 1][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 3,sinal = true):(sinal = false);
+            (M->MAT[*Linha + 1][*Coluna + 1].item != '#' && M->MAT[*Linha + 1][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 3,sinal = true):(printf("\n"));
         }
         if(((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha][*Coluna + 1].item != '#' && M->MAT[*Linha][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 1,sinal = true):(sinal = false);
+            (M->MAT[*Linha][*Coluna + 1].item != '#' && M->MAT[*Linha][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 1,sinal = true):(printf("\n"));
         }
         if((*Linha - 1) > -1)
         {
-            (M->MAT[*Linha - 1][*Coluna].item != '#' && M->MAT[*Linha - 1][*Coluna].validacao != true && sinal == false)?(*escolha = 5,sinal = true):(sinal = false);
+            (M->MAT[*Linha - 1][*Coluna].item != '#' && M->MAT[*Linha - 1][*Coluna].validacao != true && sinal == false)?(*escolha = 5,sinal = true):(printf("\n"));
         }
     //fim da tomada de decisão
 
     if(sinal == true)
     {
+        printf("Entrou");
         Pop(Ponteiro,Ponteiro_Item);
         *Linha = Ponteiro->top->data.Linha ;
         *Coluna = Ponteiro->top->data.Coluna;

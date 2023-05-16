@@ -3,7 +3,10 @@
 #include"Lista.h"
 #include"File.h"
 #include"matriz.h"
-#include"PilhaDFSeBFS.h"
+#include"PilhaDFS.h"
+#include"Fila.h"
+#include"Bernoulli.h"
+
 
 
 
@@ -13,6 +16,7 @@ int main()
 	Matriz M;
 	FILE *File;
 	signed short int Ordem;
+	//Fila F;
 
 	//entra no arquivo de entrada e extrai o tamanho do mesmo
 		LeituraTamanho(&Ordem,&File);
@@ -29,6 +33,10 @@ int main()
 	//aqui é chamado o método que realiza o caminhamento em profundida
 		CaminhamentoDFS(&M,&Ordem);
 
+
+		//CaminhamentoBFS(&M,&Ordem,&F);
+
+		//CaminhamentoBernoulli(&M,&Ordem);
  	/*Lista l;
 	Item aux;
 

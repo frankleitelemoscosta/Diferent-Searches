@@ -1,4 +1,4 @@
-#include"PilhaDFSeBFS.h"
+#include"PilhaDFS.h"
 
 void FPVazia(Pilha *p){
 	
