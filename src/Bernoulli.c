@@ -5,7 +5,7 @@ void EscolhaRandomica(short int *numeroColuna,short int *numeroLinha)
 {
     signed short int escolha = 0;
 
-    //seet semente
+    //inserindo semente
     srand(time(0));
     
     escolha = rand()%20;
@@ -14,7 +14,7 @@ void EscolhaRandomica(short int *numeroColuna,short int *numeroLinha)
         {
             *numeroColuna = 1;
         }
-        else if(escolha > 0 && escolha < 6)
+        else if(escolha >= 0 && escolha < 6)
         {
             *numeroColuna = -1;
         }
@@ -28,7 +28,7 @@ void EscolhaRandomica(short int *numeroColuna,short int *numeroLinha)
         {
             *numeroLinha = 1;
         }
-        else if(escolha > 0 && escolha < 6)
+        else if(escolha >= 0 && escolha < 6)
         {
             *numeroLinha = -1;
         }
@@ -69,12 +69,12 @@ void EvitandoParedes(Matriz *M,short int *numeroLinha,short int *numeroColuna,in
             //evitando segmentation fault
                 if(*Coluna > (*Ordem - 1))
                 {
-                    *Coluna = 5;
+                    *Coluna = (*Ordem - 1);
                 }
 
                 if(*Linha > (*Ordem - 1))
                 {
-                    *Linha = 5;
+                    *Linha = (*Ordem - 1);
                 }
             //fim
             }
@@ -128,12 +128,12 @@ void MudancadePosicao(Matriz *M,int *Coluna,int *Linha,signed short int *Ordem)
     //evitando segmentation fault
         if(*Coluna > (*Ordem - 1))
         {
-            *Coluna = 5;
+            *Coluna = (*Ordem - 1);
         }
 
         if(*Linha > (*Ordem - 1))
         {
-            *Linha = 5;
+            *Linha = (*Ordem - 1);
         }
     //finished    
 

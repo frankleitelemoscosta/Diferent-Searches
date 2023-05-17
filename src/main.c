@@ -16,7 +16,7 @@ int main()
 	Matriz M;
 	FILE *File;
 	signed short int Ordem;
-	//Fila F;
+	Fila F;
 
 	//entra no arquivo de entrada e extrai o tamanho do mesmo
 		LeituraTamanho(&Ordem,&File);
@@ -33,30 +33,17 @@ int main()
 	//aqui é chamado o método que realiza o caminhamento em profundida
 		CaminhamentoDFS(&M,&Ordem);
 
+		LeituraTamanho(&Ordem,&File);
 
-		//CaminhamentoBFS(&M,&Ordem,&F);
+		Preencher(&File,&M,&Ordem);
 
-		//CaminhamentoBernoulli(&M,&Ordem);
- 	/*Lista l;
-	Item aux;
+		CaminhamentoBFS(&M,&Ordem,&F);
 
-	FLVazia(&l);
+		LeituraTamanho(&Ordem,&File);
 
-	aux.x = 10;
-  aux.y = 5;
-	LInsert(&l, aux);
-	aux.x = 20;
-	LInsert(&l, aux);
-	aux.y = 30;
-	LInsert(&l, aux);
+		Preencher(&File,&M,&Ordem);
 
-	LImprime(&l);
-
-	aux.x = 2;
-	LRemove(&l, aux);
-
-	LImprime(&l);
-  */
+		CaminhamentoBernoulli(&M,&Ordem);
 
 
 return 0;

@@ -6,42 +6,81 @@
 void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item){
 
     bool sinal = false;
+    bool aux = false;
 
+    do{
     //para decidir onde deve se caminhar
         if((*Linha + 1) < *Ordem)
         {
-            (M->MAT[*Linha + 1][*Coluna].item != '#' && M->MAT[*Linha + 1][*Coluna].validacao != true && sinal == false)?(*escolha = 2,sinal = true):(printf("\n"));
+            if(M->MAT[*Linha + 1][*Coluna].item != '#' && M->MAT[*Linha + 1][*Coluna].validacao != true && sinal == false)
+            {
+                sinal = true;
+                *escolha = 2;
+            }
         }
         if((*Coluna - 1) > -1)
         {
-            (M->MAT[*Linha][*Coluna - 1].item != '#' && M->MAT[*Linha][*Coluna - 1].validacao != true && sinal == false)?(*escolha = 4,sinal = true):(printf("\n"));
+            if(M->MAT[*Linha][*Coluna - 1].item != '#' && M->MAT[*Linha][*Coluna - 1].validacao != true && sinal == false)
+            {
+                sinal = true;
+                *escolha = 4;
+            }
         }
         if(((*Linha + 1) < *Ordem) && ((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha + 1][*Coluna + 1].item != '#' && M->MAT[*Linha + 1][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 3,sinal = true):(printf("\n"));
+            if(M->MAT[*Linha + 1][*Coluna + 1].item != '#' && M->MAT[*Linha + 1][*Coluna + 1].validacao != true && sinal == false)
+            {
+                sinal = true;
+                *escolha = 3;
+            }
         }
         if(((*Coluna + 1) < *Ordem))
         {
-            (M->MAT[*Linha][*Coluna + 1].item != '#' && M->MAT[*Linha][*Coluna + 1].validacao != true && sinal == false)?(*escolha = 1,sinal = true):(printf("\n"));
+            if(M->MAT[*Linha][*Coluna + 1].item != '#' && M->MAT[*Linha][*Coluna + 1].validacao != true && sinal == false)
+            {
+                sinal = true;
+                *escolha = 1;
+            }
         }
         if((*Linha - 1) > -1)
         {
-            (M->MAT[*Linha - 1][*Coluna].item != '#' && M->MAT[*Linha - 1][*Coluna].validacao != true && sinal == false)?(*escolha = 5,sinal = true):(printf("\n"));
+            if(M->MAT[*Linha - 1][*Coluna].item != '#'&& M->MAT[*Linha - 1][*Coluna].validacao != true && sinal == false)
+            {
+                sinal = true;
+                *escolha = 5;
+            }
         }
     //fim da tomada de decisão
+    aux = false;
 
-    if(sinal == true)
+    if(sinal == false)
     {
-        printf("Entrou");
         Pop(Ponteiro,Ponteiro_Item);
         *Linha = Ponteiro->top->data.Linha ;
         *Coluna = Ponteiro->top->data.Coluna;
+        aux = true;
     }
+    }while(aux == true);
     
 
 }
 
-void Reset(){
+void Reset(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna){
+
+    //mudando o perigo para 1
+    M->MAT[*Linha][*Coluna].item = '1';
+
+    //para desconsiderar todos os lugares já visitados
+    for(int i = 0 ; i < *Ordem ; i++)
+    {
+        for(int j = 0 ; j < *Ordem ; j++)
+        {
+            M->MAT[i][j].validacao = false;
+        }
+    }
+
+    *Linha = 0;
+    *Coluna = 0;
 
 }
 
@@ -62,8 +101,13 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
         M->MAT[Linha][Coluna].validacao = true;
 
+
     //se for encontrado o interrogação o loop é quebrado com o break
-        (M->MAT[Linha][Coluna].item == '?')?(exit(-1)):(parada = true);
+        if(M->MAT[Linha][Coluna].item == '?')
+        {
+            printf("\nA interrogação foi encontrada em (Linha,Coluna)(%d,%d)\n",Linha,Coluna);
+            break;
+        }
 
         if((Linha + 1) < *Ordem && escolha == 2)
         {
@@ -110,14 +154,12 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
         Push(&Ponteiro,Ponteiro_Item);
 
-        PImprime(&Ponteiro);
-
         MostrandoMatriz(M,Ordem,&Linha,&Coluna);//apenas para teste, assim que acabar deve ser apagado
 
         getchar();//apenas para teste, assim que acabar deve ser apagado
         getchar();//apenas para teste, assim que acabar deve ser apagado
 
-        (M->MAT[Linha][Coluna].item == '*')?(Reset()):(printf("\n"));
+        (M->MAT[Linha][Coluna].item == '*')?(Reset(M,Ordem,&Linha,&Coluna)):(printf("\n"));
     }
 
     

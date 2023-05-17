@@ -33,7 +33,7 @@ void PImprime(Pilha *p);
 
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem);
 void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item );
-void Reset();
+void Reset(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna);
 
 #endif
 
