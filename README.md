@@ -52,10 +52,16 @@ Na medida que se foi sendo decidido o valor retornado, que tambem contava com o 
 </p>
 
 <p style = "text-align = justify">
-O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direção até não ser possível mais caminhar pela mesma, no nosso caso não o parametro de parada são paredes ou os limites da matriz.
+O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direção até não ser possível mais caminhar pela mesma, no nosso caso o parametro de parada são paredes ou os limites da matriz, ou seja, se acaso se deparar com esta situação o programa tem de redecidir para onde deve ir.
 </p>
 
 <img src="./img/image (1).png" width = 40% alt="Miranha e as paredes">
+
+<p style = "text-align = justify">
+Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.
+</p>
+
+<img src="./img/miranha-e-as-paredes.png" width = 40% alt="Miranha e as paredes">
 
 <h2>Conclusão</h2>
 
