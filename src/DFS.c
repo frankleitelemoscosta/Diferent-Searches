@@ -1,5 +1,4 @@
 #include"PilhaDFS.h"
-#include"matriz.h"//temporario até terminar os testes, assim que acabar deve ser apagado
 #include<stdbool.h>
 
 
@@ -65,25 +64,6 @@ void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signe
 
 }
 
-void Reset(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna){
-
-    //mudando o perigo para 1
-    M->MAT[*Linha][*Coluna].item = '1';
-
-    //para desconsiderar todos os lugares já visitados
-    for(int i = 0 ; i < *Ordem ; i++)
-    {
-        for(int j = 0 ; j < *Ordem ; j++)
-        {
-            M->MAT[i][j].validacao = false;
-        }
-    }
-
-    *Linha = 0;
-    *Coluna = 0;
-
-}
-
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
     
     //variaveis de ambiente
@@ -93,6 +73,7 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
         bool parada = true;
         Pilha Ponteiro;
         Item Ponteiro_Item;
+        int tamanho;
     //fim das variaveis
 
     FPVazia(&Ponteiro);
@@ -108,59 +89,102 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
             printf("\nA interrogação foi encontrada em (Linha,Coluna)(%d,%d)\n",Linha,Coluna);
             break;
         }
-
         if((Linha + 1) < *Ordem && escolha == 2)
         {
-            (M->MAT[Linha + 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
+            if(M->MAT[Linha + 1][Coluna].item == '#')
+            {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+            }
         }
         else if(escolha == 2){
             Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
         if((Coluna - 1) > -1 && escolha == 4)
         {
-            (M->MAT[Linha][Coluna - 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
+            if(M->MAT[Linha][Coluna - 1].item == '#')
+            {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+            }
         }
         else if(escolha == 4){
             Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
         if(((Linha + 1) < *Ordem) && ((Coluna + 1) < *Ordem) && escolha == 3)
         {
-            (M->MAT[Linha + 1][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
+            if(M->MAT[Linha + 1][Coluna + 1].item == '#')
+            {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+            }
         }
         else if(escolha == 3){
             Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
         if(((Coluna + 1) < *Ordem) && escolha == 1)
         {
-            (M->MAT[Linha][Coluna + 1].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
+            if(M->MAT[Linha][Coluna + 1].item == '#')
+            {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+            }
         }
         else if(escolha == 1){
             Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
         if((Linha - 1) > -1 && escolha == 5)
         {
-            (M->MAT[Linha - 1][Coluna].item == '#')?(Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item)):(printf("\n"));
+            if(M->MAT[Linha - 1][Coluna].item == '#')
+            {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+            }
         }
         else if(escolha == 5){
             Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
         }
 
     //aqui se faz a escolha para onde andar
-        (escolha == 1)?(Coluna = Coluna + 1):((escolha == 2)?(Linha = Linha + 1):((escolha == 3)?(Linha = Linha + 1, Coluna = Coluna + 1):((escolha == 4)?(Coluna = Coluna - 1):((escolha == 5)?(Linha = Linha - 1):(printf(" "))
-        ))));
+        if(escolha == 1)
+        {
+            Coluna = Coluna + 1;
+        }
+        else if(escolha == 2)
+        {
+            Linha = Linha + 1;
+        }
+        else if(escolha == 3)
+        {
+            Linha = Linha + 1, Coluna = Coluna + 1;
+        }
+        else if(escolha == 4)
+        {
+            Coluna = Coluna - 1;
+        }
+        else if(escolha == 5)
+        {
+            Linha = Linha - 1;
+        }
 
         Ponteiro_Item.Linha = Linha;
         Ponteiro_Item.Coluna = Coluna;
 
         Push(&Ponteiro,Ponteiro_Item);
 
-        MostrandoMatriz(M,Ordem,&Linha,&Coluna);//apenas para teste, assim que acabar deve ser apagado
+        /*MostrandoMatriz(M,Ordem,&Linha,&Coluna);//apenas para teste, assim que acabar deve ser apagado
 
         getchar();//apenas para teste, assim que acabar deve ser apagado
         getchar();//apenas para teste, assim que acabar deve ser apagado
-
-        (M->MAT[Linha][Coluna].item == '*')?(Reset(M,Ordem,&Linha,&Coluna)):(printf("\n"));
+        */    
+        if(M->MAT[Linha][Coluna].item == '*')
+        {
+            Reset(M,Ordem,&Linha,&Coluna);
+            
+            tamanho = Tamanho(&Ponteiro);
+            for(int i = 0 ; i < tamanho ; i++)
+            {
+                Pop(&Ponteiro,&Ponteiro_Item);
+            }
+        }
     }
 
+    //para reiniciar todas as variaveis de validação
+        ResetandoValidacao(M,Ordem);
     
 }

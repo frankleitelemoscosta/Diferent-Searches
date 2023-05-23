@@ -22,7 +22,7 @@ void Pop(Pilha *p, Item *d){
 	Block *aux;
 
 	if(p->base == p->top || p == NULL){
-		printf("PILHA VAZIA!\n");
+		//printf("PILHA VAZIA!\n");
 		return;
 	}
 	
@@ -43,6 +43,21 @@ void PImprime(Pilha *p){
 		aux = aux->prox;
 	}
 
+}
+
+int Tamanho(Pilha *P){
+
+	Block *aux;
+	int contador = 0;
+
+	aux = P->top;
+
+	while(aux != NULL)
+	{
+		aux = aux->prox;
+		contador += 1;
+	}
+	return contador;
 }
 
 /*

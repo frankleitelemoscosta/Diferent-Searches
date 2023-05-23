@@ -20,8 +20,12 @@ Para resolver o problema foi necessário trazer respostas aos seguintes question
     <li>
         Como fazer o programa caminhar de maneira aleatória pela matriz de entrada?
     </li>
+    <li> Tendo utilizado a matriz para desenvolver um dos métodos de busca, o que tem de ser feito para que se reinicie os dados desse matriz para que se tenha os dados da matriz de entrada?
     <li>
-        Como fazer o programa caminhar pela matriz usando o método de profundidade?
+        Como fazer o programa caminhar pela matriz usando o método busca em profundidade?
+    </li>
+    <li>
+        Como fazer o programa caminhar pela matriz usando o método de busca em largura?
     </li>
 </ul>
 
@@ -58,19 +62,28 @@ O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direç�
 <img src="./img/image (1).png" width = 40% alt="Miranha e as paredes">
 
 <p style = "text-align = justify">
-Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.
+Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.Tendo resolvido estes problemas, consegue-se realizar uma busca em profundidade por uma matriz qualquer de entrada.
 </p>
 
 <img src="./img/miranha-e-as-paredes.png" width = 40% alt="Miranha e as paredes">
 
+
+
 <h2>Conclusão</h2>
 
 <p style = "text-align = justify">
-Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, como foi mostrado aqui.
+Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, veja:
+</p>
+
+<p style = "text-align = justify">
+porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, como foi mostrado aqui.
 </p>
 
 
 <h2>Como compilar este projeto</h2>
+
+<h2>Referencias</h2>
+
 
 <h2>Autores</h2>
 

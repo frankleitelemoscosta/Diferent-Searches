@@ -1,10 +1,10 @@
 #ifndef __PILHADFSEBFS_H
 #define __PILHADFSEBFS_H
 
-#include"matriz.h"
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include"matriz.h"
 
 typedef struct Item Item;
 typedef struct Block Block;
@@ -30,10 +30,10 @@ void FPVazia(Pilha *p);
 void Push(Pilha *p, Item d);
 void Pop(Pilha *p, Item *d);
 void PImprime(Pilha *p);
+int Tamanho(Pilha *P);
 
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem);
 void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item );
-void Reset(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna);
 
 #endif
 

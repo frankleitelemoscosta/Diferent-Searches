@@ -39,6 +39,60 @@ void EscolhaRandomica(short int *numeroColuna,short int *numeroLinha)
 	
 }
 
+void AlterandoasVariaveis(Matriz *M,short int *numeroLinha,short int *numeroColuna,int *Coluna,int *Linha,short int *LinhaAtual,short int *ColunaAtual,signed short int *Ordem)
+{
+
+    signed short int parada = 0;
+    bool sinal = false;
+
+    while(parada != 1){
+        while(M->MAT[*Linha][*Coluna].validacao == true)
+        {
+            *Linha = *LinhaAtual;
+            *Coluna = *ColunaAtual;
+            EscolhaRandomica(numeroColuna,numeroLinha);
+            
+            sinal = true;
+
+            *Coluna = *numeroColuna + *Coluna;
+
+	        *Linha = *numeroLinha + *Linha;
+
+            //evitando segmentation fault
+                if(*Coluna < 0)
+                {
+                    *Coluna += 1;
+                }
+
+                if(*Linha < 0)
+                {
+                    *Linha += 1;
+                }
+            //fim
+
+            //evitando segmentation fault
+                if(*Coluna > (*Ordem - 1))
+                {
+                    *Coluna = (*Ordem - 1);
+                }
+
+                if(*Linha > (*Ordem - 1))
+                {
+                    *Linha = (*Ordem - 1);
+                }
+            //fim
+        }
+        parada = 1;
+
+        if(sinal == false)
+        {
+            *Coluna = *numeroColuna + *Coluna;
+
+            *Linha = *numeroLinha + *Linha;
+        }
+    }
+}
+
 void EvitandoParedes(Matriz *M,short int *numeroLinha,short int *numeroColuna,int *Coluna,int *Linha,short int *LinhaAtual,short int *ColunaAtual,signed short int *Ordem)
 {
     signed short int parada = 0;
@@ -85,7 +139,7 @@ void EvitandoParedes(Matriz *M,short int *numeroLinha,short int *numeroColuna,in
 
 }
 
-void MudancadePosicao(Matriz *M,int *Coluna,int *Linha,signed short int *Ordem)
+void MudancadePosicao(Matriz *M,int *Linha,int *Coluna,signed short int *Ordem)
 {
 
     //variaveis locais	
@@ -95,23 +149,23 @@ void MudancadePosicao(Matriz *M,int *Coluna,int *Linha,signed short int *Ordem)
         short int LinhaAtual = *Linha;
         short int ColunaAtual = *Coluna;
 
-    EscolhaRandomica(&numeroColuna,&numeroLinha);
+    //nesta função é decidido para onde vai se caminhar
+        EscolhaRandomica(&numeroColuna,&numeroLinha);
 
-    while(parada != 1)
-	{
-		if(numeroColuna == 0 && numeroLinha == 0){
-			numeroLinha = 1;
-		}
-		else{
-			parada = 1;
-		}
-	}
+    //se acaso não mudar a linha muda obrigatoriamente
+        while(parada != 1)
+        {
+            if(numeroColuna == 0 && numeroLinha == 0){
+                numeroLinha = 1;
+            }
+            else{
+                parada = 1;
+            }
+        }
 
     parada = 0;
 
-	*Coluna = numeroColuna + *Coluna;
-
-	*Linha = numeroLinha + *Linha;
+    AlterandoasVariaveis(M,&numeroLinha,&numeroColuna,Coluna,Linha,&LinhaAtual,&ColunaAtual,Ordem);
 
     //evitando segmentation fault
         if(*Coluna < 0)
@@ -135,15 +189,18 @@ void MudancadePosicao(Matriz *M,int *Coluna,int *Linha,signed short int *Ordem)
         {
             *Linha = (*Ordem - 1);
         }
-    //finished    
+    //finished 
+   
+    //esta função é chamada para corrigir quando se depara com uma parede
+        EvitandoParedes(M,&numeroLinha,&numeroColuna,Coluna,Linha,&LinhaAtual,&ColunaAtual,Ordem);
 
-    EvitandoParedes(M,&numeroLinha,&numeroColuna,Coluna,Linha,&LinhaAtual,&ColunaAtual,Ordem);
+    M->MAT[*Linha][*Coluna].validacao = true;
 
-    MostrandoMatriz(M,Ordem,Linha,Coluna);//apenas para teste, assim que acabar deve ser apagado
+    /*MostrandoMatriz(M,Ordem,Linha,Coluna);//apenas para teste, assim que acabar deve ser apagado
 
     getchar();//apenas para teste, assim que acabar deve ser apagado
     getchar();//apenas para teste, assim que acabar deve ser apagado
-
+    */
 
         
 }
@@ -157,14 +214,17 @@ void CaminhamentoBernoulli(Matriz *M,signed short int *Ordem)
 
     while(parada != false)
     {
-
-        MudancadePosicao(M,&Linha,&Coluna,Ordem);
-
         if(M->MAT[Linha][Coluna].item == '?')
         {
             printf("O algoritmo de Bernoulli encontrou a interroção em: (%d,%d)\n",Linha,Coluna);
             break;
         }
+        else if(M->MAT[Linha][Coluna].item == '*')
+        {
+            Reset(M,Ordem,&Linha,&Coluna);
+        }
+
+        MudancadePosicao(M,&Linha,&Coluna,Ordem);
     }
 
 }
