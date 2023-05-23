@@ -33,7 +33,7 @@ Para resolver o problema foi necessário trazer respostas aos seguintes question
 A memória é um recurso utilizado pelo Sistema Operacional para manter informações pertinentes a uma aplicação acessiveis para serem manipuladas, e causar algum efeito em uma aplicação em que o usuário requeriu, porem a mesma é um recurso limitado, e em aplicações com uso de uma grande quantidade de informações essa memória pode não suportar a necessidade de espaço necessária para o programa realizar suas operações, com isso uma alternativa que visa aproveitar esse espaço de maneira inteligente é o uso de alocação dinâmica dos espaços para colocar tal massa de dados.Sendo assim neste projeto foi utilizado diferentes estruturas em virtude do problema fornecido apenas algumas estruturas se adequam para atender as execuções a serem feitas para que os algoritmos sejam executados da maneira correta, no decorrer desta documentação será possível entender isso de forma mais clara, visto que vai ser mostrado que não seria possível fazer o algoritmo fornecer a saída correta se não fossem utilizado as estruturas de dados que foram utilizadas, em resumo a resposta para o primeiro questionamento é que essas estruturas são dinâmicas que não possuem alocação sequencial na memória, o que pode trazer um maior custo de acesso do dado na memória, mas que contornará o erro de segmentation fault que pode vir ocorrer com uma estrutura linear, supondo que fosse alocado um vetor de 2000 casas de maneira linear, a memória vai ser separada pelo Sistema Operacional de maneira sequencial, ou seja cada endereço do vetor vai estar logo após ao atual fisicamente na memória, o que não ocorre na alocação dinâmica da memória, o que se tem é o Sistema Operacional separando espaços de memória aleatoriamente na RAM para alocar as informações o que aumenta o tempo de leitura do dado, mas minimiza o problema de conflito que ocorre com a estrutura linear, e torna o algoritmo um pouco mais tolerante a erros.
 </p>
 
-<img src="./img/Miranha-e-as-ras.jpg" width = 100% alt="Miranha interpretando um ponteiro">
+<a href = "https://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)"><img src="./img/Miranha-e-as-ras.jpg" width = 100% alt="Miranha interpretando um ponteiro"></a>
 
 <p style = "text-align = justify">
 Para caminhar de maneira aleatória pela matriz de entrada foi utilizado um recurso da biblioteca time, que é a função rand que seleciona um valor dentro de um intervalo determinado pelo programador e determina um número com base nesse intervalo pegando como base o tempo em segundos desde 1 de Janeiro de 1970 até os tempos atuais. E utilizando a técnica de usar um escopo maior de números, o qual foi extraido do <a href="https://github.com/mpiress/GenerateDataToMaze">algoritmo de geração de matrizes</a> do Michel Pires de número maior do que apenas dois números sendo 0 ou 1 para somar ou subtrair para mudar a linha e a coluna e fazer o algoritmo mudar de posição até que seja encontrado a interrogação, o qual se faz o parametro de parada para o algoritmo, o problema que foi observado foi este:
@@ -84,7 +84,9 @@ porem ainda sim é possível inferir quais serão a quantidade de passos realiza
 
 <img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
 
-
+<p style = "text-align = justify">
+Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução mudava.
+</p>
 
 <h2>Como compilar este projeto</h2>
 
@@ -127,7 +129,7 @@ Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Co
             <a href="https://www.linkedin.com/in/frank-leite-6a6a84198/"><img src="./img/linkedin.png" alt="" style="width: 50% "></a>
         </td>
         <td align = "center">
-            <img src="./img/whatsapp.png" alt="" style="width: 50% ">
+            <a href = "https://wa.me/+5531996449587"><img src="./img/whatsapp.png" alt="" style="width: 50% "></a>
         </td>
     </tr>
     <tr>
@@ -136,6 +138,7 @@ Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Co
         </td>
         <td align = "center">
             (31) 99644-9587
+            <p>Click na foto do whatsapp você será redirecionado diretamente a um chat comigo</p>
         </td>
     </tr>
 </table>
