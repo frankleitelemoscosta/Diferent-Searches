@@ -72,12 +72,18 @@ Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que 
 <h2>Conclusão</h2>
 
 <p style = "text-align = justify">
-Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, veja:
+Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, sendo assim temos uma grande variação do tempo quando executamos o algoritmo randomico, veja:
 </p>
 
+<img src="./img/tempo-no-bernoulli.png" width = 90% alt="Dados empiricos">
+
+
 <p style = "text-align = justify">
-porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, como foi mostrado aqui.
+porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, veja que os tempos de execução mostram uma pequena variação:
 </p>
+
+<img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
+
 
 
 <h2>Como compilar este projeto</h2>

@@ -14,7 +14,7 @@ int main()
 	Matriz M;
 	FILE *File;
 	signed short int Ordem;
-	//Fila F;
+	Fila F;
 	clock_t inicio, fim;
     double tempo_de_uso_CPU;
 
@@ -30,7 +30,7 @@ int main()
 		Preencher(&File,&M,&Ordem);
 
 	//aqui é chamado o método que realiza o caminhamento em profundidade
-		//CaminhamentoDFS(&M,&Ordem);
+		CaminhamentoDFS(&M,&Ordem);
 
 	//O preenchimento da matriz é refeito para que seja possivel reiniciar o novo caminhamento
 		LeituraTamanho(&Ordem,&File);
@@ -38,7 +38,7 @@ int main()
 		Preencher(&File,&M,&Ordem);
 
 	//aqui é chamado o método que realiza o caminhamento em largura
-		//CaminhamentoBFS(&M,&Ordem,&F);
+		CaminhamentoBFS(&M,&Ordem,&F);
 
 	//O preenchimento da matriz é refeito para que seja possivel reiniciar o novo caminhamento
 		LeituraTamanho(&Ordem,&File);
