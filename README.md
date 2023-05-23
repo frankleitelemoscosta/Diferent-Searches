@@ -88,6 +88,32 @@ porem ainda sim é possível inferir quais serão a quantidade de passos realiza
 
 <h2>Como compilar este projeto</h2>
 
+<p style = "text-align = justify">
+Este projeto esta utilizando um arquivo de configuração, este arquivo possui comandos que poderiam ser rodados em terminal para executar o programa, porem tal arquivo é utilizado com o objetivo de diminuir a necessidade de usar grandes diretivas, para compilar, limpar ou rodar o programa, para realizar tais ações esse make file se utiliza dos comandos: 
+</p>
+
+<ul>
+    <li />
+        gcc (nomes dos arquivos) -o (nome do executável)
+    <li />
+        rm -rf (nome do executável)
+    <li /> 
+        ./(nome do executável)
+</ul>
+
+<p style = "text-align = justify">
+O que estes comandos fazem é: compilar os arquivos do diretorio src, limpar os executaveis gerados pela compilação e rodar os executaveis, respectivamente. Se estes mesmos comandos fossem escritos no terminal eles realizariam tais procedimentos, porem com o makefile fica tudo mais simplório para realizar estes comandos basta escrever no terminal do diretório, os comandos:
+</p>
+
+<ul>
+    <li />
+        make
+    <li />
+        make clean
+    <li /> 
+        make run
+</ul>
+
 <h2>Referencias</h2>
 
 
@@ -95,4 +121,21 @@ porem ainda sim é possível inferir quais serão a quantidade de passos realiza
 
 Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Computação no <a href = "https://www.cefetmg.br/">CEFET</a>, 3° período.
 
-<a href="https://www.linkedin.com/in/frank-leite-6a6a84198/"><img src="./img/linkedin.png" alt="" style="width: 10% "></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/whatsapp.png" alt="" style="width: 20% "><br>&nbsp;&nbsp;&nbsp;linkedin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(31) 99644-9587
+<table>
+    <tr>
+        <td align = "center" width="50%">
+            <a href="https://www.linkedin.com/in/frank-leite-6a6a84198/"><img src="./img/linkedin.png" alt="" style="width: 50% "></a>
+        </td>
+        <td align = "center">
+            <img src="./img/whatsapp.png" alt="" style="width: 50% ">
+        </td>
+    </tr>
+    <tr>
+        <td align = "center" width="50%">
+            Linkedin
+        </td>
+        <td align = "center">
+            (31) 99644-9587
+        </td>
+    </tr>
+</table>
