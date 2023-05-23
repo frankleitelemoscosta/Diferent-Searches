@@ -137,7 +137,7 @@ Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Co
             Linkedin
         </td>
         <td align = "center">
-            (31) 99644-9587
+            +55(31) 99644-9587
             <p>Click na foto do whatsapp você será redirecionado diretamente a um chat comigo</p>
         </td>
     </tr>
