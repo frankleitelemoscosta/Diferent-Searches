@@ -62,12 +62,19 @@ O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direç�
 <img src="./img/image (1).png" width = 40% alt="Miranha e as paredes">
 
 <p style = "text-align = justify">
-Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.Tendo resolvido estes problemas, consegue-se realizar uma busca em profundidade por uma matriz qualquer de entrada.
+Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes, e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.Tendo resolvido estes problemas, consegue-se realizar uma busca em profundidade por uma matriz qualquer de entrada, dando fim a pergunta inicial de como usar o método de caminhamento em profundidade.
 </p>
 
 <img src="./img/miranha-e-as-paredes.png" width = 40% alt="Miranha e as paredes">
 
+<p style = "text-align = justify">
+A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é literalmente realizar uma verificação aos vizinhos da posição corrente, o que se observado iteração a iteração é possivel perceber que as posições visitadas dão a percepção de que se "desenha" a largura da matriz, veja:
+</p>
 
+<img src="./img/BFS-visita.jpeg" width = 35% alt="BFS">
+
+
+<img src="./img/BFS.jpeg" width = 35% alt="BFS">
 
 <h2>Conclusão</h2>
 
@@ -85,7 +92,7 @@ porem ainda sim é possível inferir quais serão a quantidade de passos realiza
 <img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
 
 <p style = "text-align = justify">
-Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução mudava.
+Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução muda.
 </p>
 
 <h2>Como compilar este projeto</h2>
