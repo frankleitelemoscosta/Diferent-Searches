@@ -31,18 +31,19 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
             printf("Foi encontrado a interrogação (linha,Coluna) (%d,%d)\n",dado.Linha,dado.Coluna);
             return;
         }
-        /*else if(M->MAT[dado.Linha][dado.Coluna].item == '*')
+        else if(M->MAT[dado.Linha][dado.Coluna].item == '*')
         {
-            Reset(M,Ordem);
-        }*/
+            Reset(M,Ordem,&dado.Linha,&dado.Coluna);
+        }
 
         //criando um pequeno vetor com as possibilidades de caminhamento    
             ItemF vizinhos[] = {
                 {dado.Linha + 1, dado.Coluna},   // Vizinho abaixo
                 {dado.Linha, dado.Coluna + 1},   // Vizinho esquerda
+                {dado.Linha + 1, dado.Coluna + 1},
             };
 
-            for(int i = 0 ; i < 2 ; i++)
+            for(int i = 0 ; i < 3 ; i++)
             {
                 int linha = vizinhos[i].Linha;
                 int coluna = vizinhos[i].Coluna;
