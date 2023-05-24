@@ -6,6 +6,15 @@
 Esse projeto tem como desafio a implementação de três formas diferentes de caminhar pela matriz de entrada, aleatoriamente, fazendo uma busca em largura e fazendo uma busca em profundidade. Aqui surge a seguinte questão: como fazer tais caminhamentos?, desta pergunta nasce todas as outras discuções a respeito das contruções desenvolvidas neste projeto.
 </p>
 
+# Regras sobre o caminhamento
+
+No labirinto fornecido para o caminhamento existem 3 possíveis casos:
+* Caso # : representa uma parede local onde não se pode caminhar e impede o código de prosseguir por este caminho.
+* Caso 1 : representa uma casa onde se é possível caminhar sem nenhuma outra consequência.
+* Caso * : representa um perigo, casas onde contém perigos não devem ser evitadas pelo código porém, sempre que o mesmo pisar em uma casa contendo perigo o mesmo retornará para o inicio do labirinto e esquecerá todas as casas exploradas
+</p>
+Deve-se ressaltar que em caso do código encontrar um perigo, o mesmo sumirá se transformando em um local onde se é possível andar sem quaisquer outras consequência (Caso 1).
+</p>
 
 # Desenvolvimento do Problema
 
