@@ -140,7 +140,7 @@ CORMEN, Thomas H. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Editora 
 
 # Autores
 
-Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Computação no <a href = "https://www.cefetmg.br/">CEFET</a>, 3° período.
+Frank Leite Lemos Costa, Leandro Sousa Costa, João Pedro Freitas alunos de Engenharia da Computação no <a href = "https://www.cefetmg.br/">CEFET</a>, 3° período.
 
 <table>
     <tr>
