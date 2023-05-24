@@ -1,13 +1,13 @@
-<h1>Diferent-Search</h1>
+# Diferent-Search
 
-<h2>O Problema</h2>
+# O Problema
 
 <p style = "text-align = justify">
 Esse projeto tem como desafio a implementação de três formas diferentes de caminhar pela matriz de entrada, aleatoriamente, fazendo uma busca em largura e fazendo uma busca em profundidade. Aqui surge a seguinte questão: como fazer tais caminhamentos?, desta pergunta nasce todas as outras discuções a respeito das contruções desenvolvidas neste projeto.
 </p>
 
 
-<h2>Desenvolvimento do Problema</h2>
+# Desenvolvimento do Problema
 
 <p style = "text-align = justify">
 Para resolver o problema foi necessário trazer respostas aos seguintes questionamentos:
@@ -29,20 +29,26 @@ Para resolver o problema foi necessário trazer respostas aos seguintes question
     </li>
 </ul>
 
+# Lógica Implementada 
+
+## Problemas de memória.
+
 <p style = "text-align = justify">
-A memória é um recurso utilizado pelo Sistema Operacional para manter informações pertinentes a uma aplicação acessiveis para serem manipuladas, e causar algum efeito em uma aplicação em que o usuário requeriu, porem a mesma é um recurso limitado, e em aplicações com uso de uma grande quantidade de informações essa memória pode não suportar a necessidade de espaço necessária para o programa realizar suas operações, com isso uma alternativa que visa aproveitar esse espaço de maneira inteligente é o uso de alocação dinâmica dos espaços para colocar tal massa de dados.Sendo assim neste projeto foi utilizado diferentes estruturas em virtude do problema fornecido apenas algumas estruturas se adequam para atender as execuções a serem feitas para que os algoritmos sejam executados da maneira correta, no decorrer desta documentação será possível entender isso de forma mais clara, visto que vai ser mostrado que não seria possível fazer o algoritmo fornecer a saída correta se não fossem utilizado as estruturas de dados que foram utilizadas, em resumo a resposta para o primeiro questionamento é que essas estruturas são dinâmicas que não possuem alocação sequencial na memória, o que pode trazer um maior custo de acesso do dado na memória, mas que contornará o erro de segmentation fault que pode vir ocorrer com uma estrutura linear, supondo que fosse alocado um vetor de 2000 casas de maneira linear, a memória vai ser separada pelo Sistema Operacional de maneira sequencial, ou seja cada endereço do vetor vai estar logo após ao atual fisicamente na memória, o que não ocorre na alocação dinâmica da memória, o que se tem é o Sistema Operacional separando espaços de memória aleatoriamente na RAM para alocar as informações o que aumenta o tempo de leitura do dado, mas minimiza o problema de conflito que ocorre com a estrutura linear, e torna o algoritmo um pouco mais tolerante a erros.
+A memória é um recurso utilizado pelo Sistema Operacional para manter informações pertinentes a uma aplicação acessiveis para serem manipuladas, e causar algum efeito em uma aplicação em que o usuário requeriu, porem a mesma é um recurso limitado, e em aplicações com uso de uma grande quantidade de informações essa memória pode não suportar a necessidade de espaço necessária para o programa realizar suas operações, com isso uma alternativa que visa aproveitar esse espaço de maneira inteligente é o uso de alocação dinâmica dos espaços para colocar tal massa de dados.Sendo assim neste projeto foi utilizado diferentes estruturas em virtude do problema fornecido apenas algumas estruturas se adequam para atender as execuções a serem feitas para que os algoritmos sejam executados da maneira correta, no decorrer desta documentação será possível entender isso de forma mais clara, visto que vai ser mostrado que não seria possível fazer o algoritmo fornecer a saída correta se não fossem utilizado as estruturas de dados que foram utilizadas, em resumo a resposta para o primeiro questionamento é que essas estruturas são dinâmicas que não possuem alocação sequencial na memória, o que pode trazer um maior custo de acesso do dado na memória, mas que contornará o erro de 'segmentation fault' que pode vir ocorrer com uma estrutura linear, supondo que fosse alocado um vetor de 2000 casas de maneira linear, a memória vai ser separada pelo Sistema Operacional de maneira sequencial, ou seja cada endereço do vetor vai estar logo após ao atual fisicamente na memória, o que não ocorre na alocação dinâmica da memória, o que se tem é o Sistema Operacional separando espaços de memória aleatoriamente na RAM para alocar as informações o que aumenta o tempo de leitura do dado, mas minimiza o problema de conflito que ocorre com a estrutura linear, e torna o algoritmo um pouco mais tolerante a erros.
 </p>
 
 <a href = "https://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)"><img src="./img/Miranha-e-as-ras.jpg" width = 100% alt="Miranha interpretando um ponteiro"></a>
 
+## Caminhamento de maneira aleatória:
+
 <p style = "text-align = justify">
-Para caminhar de maneira aleatória pela matriz de entrada foi utilizado um recurso da biblioteca time, que é a função rand que seleciona um valor dentro de um intervalo determinado pelo programador e determina um número com base nesse intervalo pegando como base o tempo em segundos desde 1 de Janeiro de 1970 até os tempos atuais. E utilizando a técnica de usar um escopo maior de números, o qual foi extraido do <a href="https://github.com/mpiress/GenerateDataToMaze">algoritmo de geração de matrizes</a> do Michel Pires de número maior do que apenas dois números sendo 0 ou 1 para somar ou subtrair para mudar a linha e a coluna e fazer o algoritmo mudar de posição até que seja encontrado a interrogação, o qual se faz o parametro de parada para o algoritmo, o problema que foi observado foi este:
+Para caminhar de maneira aleatória pela matriz de entrada foi utilizado um recurso da biblioteca time, que é a função rand que seleciona um valor dentro de um intervalo determinado pelo programador e determina um número com base nesse intervalo pegando como base o tempo em segundos desde 1 de Janeiro de 1970 até os tempos atuais. E utilizando a técnica de usar um escopo maior de números, o qual foi extraido do <a href="https://github.com/mpiress/GenerateDataToMaze">GenerateDataToMaze</a> do Michel Pires de número maior do que apenas dois números sendo 0 ou 1 para somar ou subtrair para mudar a linha e a coluna e fazer o algoritmo mudar de posição até que seja encontrado a interrogação, o qual se faz o parametro de parada para o algoritmo, o problema que foi observado foi este:
 </p>
 
 <img src="./img/dois-numeros.png" width = 30% alt="imagem com dois números">
 
 <p style = "text-align = justify">
-Inicialmente foi utilizado a função rand()%2 o que vai decidir um número de 0 a 1, ou seja, seria retornado 0 ou 1, isso seria perfeito se o método de escolha da biblioteca time não tendece tanto a repetir um mesmo resultado quando se tem um número menor de possibilidades, nesse caso seria apenas duas possibilidades, e se mostrou ineficiente visto que era retornado muitas vezes apenas uma das possibilidades, porem quando foi apresentado um escopo maior de números como mostra a imagem abaixo: 
+Inicialmente foi utilizado a função <i>rand()%2</i> o que vai decidir um número de 0 a 1, ou seja, seria retornado 0 ou 1, isso seria perfeito se o método de escolha da biblioteca time não tendece tanto a repetir um mesmo resultado quando se tem um número menor de possibilidades, nesse caso seria apenas duas possibilidades, e se mostrou ineficiente visto que era retornado muitas vezes apenas uma das possibilidades, porem quando foi apresentado um escopo maior de números como mostra a imagem abaixo: 
 </p>
 
 <img src="./img/range-com-muitos-numeros.png" width = 80% alt="imagem do range com mais de 20 num">
@@ -55,6 +61,8 @@ Assim o intervalo agora para que fosse decidido entre 0 ou 1 é maior, aumentand
 Na medida que se foi sendo decidido o valor retornado, que tambem contava com o valor -1, pois estamos considerando que vamos caminhar em todas as direções possiveis foi sendo verificado se tinha chegado até uma posição onde a interrogação estava, sendo assim o que ocorreu foi que a cada iteração do algoritmo foi sendo somado um, subtraido um ou permanecendo com o mesmo valor da linha ou coluna que no caso do algoritmo ocorria quando se somava zero a linha ou coluna, e verificado a toda alteração os respectivos indices que foram sendo obtidos, tomando as devidas verificações para que também não houvesse estouro de memória ao acessar posições inexistentes que ultrapassavam os limites da matriz de entrada, alem de evitar as paredes. 
 </p>
 
+## Caminhamento em profundidade (DFS): 
+
 <p style = "text-align = justify">
 O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direção até não ser possível mais caminhar pela mesma, no nosso caso o parametro de parada são paredes ou os limites da matriz, ou seja, se acaso se deparar com esta situação o programa tem de redecidir para onde deve ir.
 </p>
@@ -62,21 +70,29 @@ O algoritmo de caminhamento em profundidade vem da ideia de examinar uma direç�
 <img src="./img/image (1).png" width = 40% alt="Miranha e as paredes">
 
 <p style = "text-align = justify">
-Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes, e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desimpilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.Tendo resolvido estes problemas, consegue-se realizar uma busca em profundidade por uma matriz qualquer de entrada, dando fim a pergunta inicial de como usar o método de caminhamento em profundidade.
+Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que se nos deparassemos com a situação onde o programa caminhasse até uma posição cercada de paredes, e como a casa antecessora já foi visitada, não podemos tomar a direção da mesma, sendo assim foi necessário usar uma pilha e ir empilhando as posições passadas, e quando chegassemos nessa situação basta ir desempilhando as posições e verificando os vizinhos até que fosse possível encontrar uma direção possível de caminhar.Tendo resolvido estes problemas, consegue-se realizar uma busca em profundidade por uma matriz qualquer de entrada, dando fim a pergunta inicial de como usar o método de caminhamento em profundidade.
 </p>
 
 <img src="./img/miranha-e-as-paredes.png" width = 40% alt="Miranha e as paredes">
 
+## Caminhamento em Largura (BFS): 
+
 <p style = "text-align = justify">
-A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é literalmente realizar uma verificação aos vizinhos da posição corrente, o que se observado iteração a iteração é possivel perceber que as posições visitadas dão a percepção de que se "desenha" a largura da matriz, veja:
+A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é literalmente realizar uma verificação aos vizinhos da posição corrente, o que se observado iteração a iteração é possivel perceber que as posições visitadas dão a percepção de que se "desenha" a largura da matriz. O BFS começa a partir de um vértice inicial e visita todos os vértices vizinhos desse vértice antes de se mover para os vértices vizinhos dos vizinhos. Esse processo continua até que todos os vértices alcançáveis tenham sido visitados, veja:
 </p>
+
 
 <img src="./img/BFS-visita.jpeg" width = 35% alt="BFS">
 
+</br>
 
 <img src="./img/BFS.jpeg" width = 35% alt="BFS">
 
-<h2>Conclusão</h2>
+<p style = "text-align = justify">
+    Para auxilio no caminhamento da matriz da maneira em largura, utilizamos a estrutura de dados Fila (queue), para manter o controle dos vertices que devem ou já foram visitados, com finalidade de não repetir caminhos previamente analisados.
+</p>
+
+# Conclusões
 
 <p style = "text-align = justify">
 Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, sendo assim temos uma grande variação do tempo quando executamos o algoritmo randomico, veja:
@@ -95,38 +111,34 @@ porem ainda sim é possível inferir quais serão a quantidade de passos realiza
 Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução muda.
 </p>
 
-<h2>Como compilar este projeto</h2>
+# Instruções de Compilação do Programa
 
 <p style = "text-align = justify">
 Este projeto esta utilizando um arquivo de configuração, este arquivo possui comandos que poderiam ser rodados em terminal para executar o programa, porem tal arquivo é utilizado com o objetivo de diminuir a necessidade de usar grandes diretivas, para compilar, limpar ou rodar o programa, para realizar tais ações esse make file se utiliza dos comandos: 
+
+<table border="1">
+      <tr><td><u>gcc (nome dos arquivos) -o  (nome do executável)</u></td></tr>
+      <tr><td><u>rm -rf (nome do executável)</u></td></tr>
+      <tr><td><u>./(nome do executável)</u></td></tr>
+</table>
+
 </p>
 
-<ul>
-    <li />
-        gcc (nomes dos arquivos) -o (nome do executável)
-    <li />
-        rm -rf (nome do executável)
-    <li /> 
-        ./(nome do executável)
-</ul>
-
-<p style = "text-align = justify">
-O que estes comandos fazem é: compilar os arquivos do diretorio src, limpar os executaveis gerados pela compilação e rodar os executaveis, respectivamente. Se estes mesmos comandos fossem escritos no terminal eles realizariam tais procedimentos, porem com o makefile fica tudo mais simplório para realizar estes comandos basta escrever no terminal do diretório, os comandos:
+<p>
+    <i>Este código possui um arquivo Makefile que facilita a compilação e execução do programa</br>As diretrizes de execução deste
+    Make file são:<i>
+    <table border="1">
+      <tr><td><u>make clean</u></td> <td>Apaga a última compilação realizada contida na pasta build</td></tr>
+      <tr><td><u>make</u></td> <td>Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build.</td></tr>
+      <tr><td><u>make run</u></td> <td>Executa o programa da pasta build após o programa já estar compilado </td></tr>
+    </table>
+    <i>Para a execução do programa utilize <u>make</u> para realizar a compilação e logo após utilize <u>make run</u> para executar o programa</i>
 </p>
 
-<ul>
-    <li />
-        make
-    <li />
-        make clean
-    <li /> 
-        make run
-</ul>
+# Referencias
+CORMEN, Thomas H. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Editora Elsevier, 2012.
 
-<h2>Referencias</h2>
-
-
-<h2>Autores</h2>
+# Autores
 
 Frank Leite Lemos Costa, Leandro, João Pedro Freitas alunos de Engenharia da Computação no <a href = "https://www.cefetmg.br/">CEFET</a>, 3° período.
 
