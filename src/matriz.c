@@ -44,13 +44,13 @@ void MostrandoMatriz(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna)
                 }
                 printf("\n");
         }
+        printf("\n");
     //fim 
 }
 
 void Reset(Matriz *M, signed short int *Ordem,int *Linha,int *Coluna){
-
         //mudando o perigo para 1
-        M->MAT[*Linha][*Coluna].item = '2';
+        M->MAT[*Linha][*Coluna].item = '1';
 
         //para desconsiderar todos os lugares já visitados
         for(int i = 0 ; i < *Ordem ; i++)

@@ -155,54 +155,53 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
                 Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
             }
         }
-        else if(((Linha - 1) > -1) && ((Coluna + 1) < *Ordem) && escolha == 7)
+        else if((((Linha - 1) > -1) || ((Coluna + 1) < *Ordem)) && escolha == 7)
         {
             if(M->MAT[Linha - 1][Coluna + 1].item == '#' || M->MAT[Linha - 1][Coluna + 1].validacao == true)
             {
                 Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
             }
         }
-        else if(((Linha + 1) < *Ordem) && ((Coluna - 1) > -1) && escolha == 8)
+        else if((((Linha + 1) < *Ordem) || ((Coluna - 1) > -1)) && escolha == 8)
         {
             if(M->MAT[Linha + 1][Coluna - 1].item == '#' || M->MAT[Linha + 1][Coluna - 1].validacao == true)
             {
                 Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
             }
-        }else
-        {
-            if((Linha + 1) >= *Ordem && escolha == 2)
-            {
-                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if((Coluna - 1) < 0 && escolha == 4)
-            {
-                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Linha + 1) >= *Ordem) && ((Coluna + 1) >= *Ordem) && escolha == 3)
-            {
-                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Coluna + 1) >= *Ordem) && escolha == 1)
-            {
-                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Linha - 1) < 0) && escolha == 5)
-            {                
-                    Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Linha - 1) < 0) && ((Coluna - 1) < 0) && escolha == 6)
-            {
-                    Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Linha - 1) < 0) && ((Coluna + 1) >= *Ordem) && escolha == 7)
-            {
-                    Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
-            else if(((Linha + 1) >= *Ordem) && ((Coluna - 1) < 0) && escolha == 8)
-            {
-                    Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
-            }
         }
+        if(((Linha + 1) >= (*Ordem-1)) && escolha == 2)
+        {
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if((Coluna - 1) < 0 && escolha == 4)
+        {
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if((((Linha + 1) >= (*Ordem-1)) || ((Coluna + 1) >= (*Ordem-1))) && escolha == 3)
+        {
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if(((Coluna + 1) >= (*Ordem-1)) && escolha == 1)
+        {
+            Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if(((Linha - 1) < 0) && escolha == 5)
+        {                
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if(((Linha - 1) < 0) && ((Coluna - 1) < 0) && escolha == 6)
+        {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if(((Linha - 1) < 0) && ((Coluna + 1) >= (*Ordem-1)) && escolha == 7)
+        {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        else if((((Linha + 1) >= (*Ordem-1)) || ((Coluna - 1) < 0)) && escolha == 8)
+        {
+                Selecionando(M,Ordem,&Linha,&Coluna,&escolha,&Ponteiro,&Ponteiro_Item);
+        }
+        
 
 
     //aqui se faz a escolha para onde andar
@@ -250,11 +249,12 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
         getchar();//apenas para teste, assim que acabar deve ser apagado
         getchar();//apenas para teste, assim que acabar deve ser apagado
-          */  
+         */
+
         if(M->MAT[Linha][Coluna].item == '*')
         {
-            Reset(M,Ordem,&Linha,&Coluna);
-            
+            Reset(M,Ordem,&Linha,&Coluna);            
+
             tamanho = Tamanho(&Ponteiro);
             for(int i = 0 ; i < tamanho ; i++)
             {

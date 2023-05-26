@@ -17,6 +17,8 @@ int main()
 	Fila F;
 	clock_t inicio, fim;
     double tempo_de_uso_CPU;
+    srand(time(NULL));
+
 
     inicio = clock(); // Captura o tempo de início
 

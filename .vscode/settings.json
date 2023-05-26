@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "fila.h": "c",
+        "matriz.h": "c",
+        "stdio.h": "c",
+        "stdbool.h": "c",
+        "file.h": "c",
+        "lista.h": "c",
+        "pilhadfs.h": "c",
+        "bernoulli.h": "c"
+    }
+}

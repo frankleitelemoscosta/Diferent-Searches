@@ -12,7 +12,7 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
     {
         for(int j = 0 ; j < *Ordem ; j++)
         {
-            M->MAT[dado.Linha][dado.Coluna].validacao = false;
+            M->MAT[i][j].validacao = false;
         }
     }
 
@@ -33,7 +33,23 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
         }
         else if(M->MAT[dado.Linha][dado.Coluna].item == '*')
         {
-            Reset(M,Ordem,&dado.Linha,&dado.Coluna);
+            M->MAT[dado.Linha][dado.Coluna].item = '1';
+            while(!isVazia(F))
+            {
+                Desenfileira(F,&dado);
+            }
+            for(int i = 0 ; i < *Ordem ; i++)
+            {
+                for(int j = 0 ; j < *Ordem ; j++)
+                {
+                    M->MAT[i][j].validacao = false;
+                }
+            }
+            FFVazia(F);
+            dado.Linha = 0;
+            dado.Coluna = 0;
+            M->MAT[dado.Linha][dado.Coluna].validacao = true;
+            Enfileira(F,dado);
         }
 
         //criando um pequeno vetor com as possibilidades de caminhamento    
