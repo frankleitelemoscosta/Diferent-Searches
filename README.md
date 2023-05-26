@@ -8,7 +8,7 @@ Esse projeto tem como desafio a implementação de três formas diferentes de ca
 
 # Regras sobre o caminhamento
 
-No labirinto fornecido para o caminhamento existem 3 possíveis casos:
+No labirinto (matriz) fornecido para o caminhamento existem 3 possíveis casos:
 * Caso # : representa uma parede local onde não se pode caminhar e impede o código de prosseguir por este caminho.
 * Caso 1 : representa uma casa onde se é possível caminhar sem nenhuma outra consequência.
 * Caso * : representa um perigo, casas onde contém perigos não devem ser evitadas pelo código porém, sempre que o mesmo pisar em uma casa contendo perigo o mesmo retornará para o inicio do labirinto e esquecerá todas as casas exploradas
@@ -40,7 +40,7 @@ Para resolver o problema foi necessário trazer respostas aos seguintes question
 
 # Lógica Implementada 
 
-## Problemas de memória.
+## Problemas relacionados a memória.
 
 <p style = "text-align = justify">
 A memória é um recurso utilizado pelo Sistema Operacional para manter informações pertinentes a uma aplicação acessiveis para serem manipuladas, e causar algum efeito em uma aplicação em que o usuário requeriu, porem a mesma é um recurso limitado, e em aplicações com uso de uma grande quantidade de informações essa memória pode não suportar a necessidade de espaço necessária para o programa realizar suas operações, com isso uma alternativa que visa aproveitar esse espaço de maneira inteligente é o uso de alocação dinâmica dos espaços para colocar tal massa de dados.Sendo assim neste projeto foi utilizado diferentes estruturas em virtude do problema fornecido apenas algumas estruturas se adequam para atender as execuções a serem feitas para que os algoritmos sejam executados da maneira correta, no decorrer desta documentação será possível entender isso de forma mais clara, visto que vai ser mostrado que não seria possível fazer o algoritmo fornecer a saída correta se não fossem utilizado as estruturas de dados que foram utilizadas, em resumo a resposta para o primeiro questionamento é que essas estruturas são dinâmicas que não possuem alocação sequencial na memória, o que pode trazer um maior custo de acesso do dado na memória, mas que contornará o erro de 'segmentation fault' que pode vir ocorrer com uma estrutura linear, supondo que fosse alocado um vetor de 2000 casas de maneira linear, a memória vai ser separada pelo Sistema Operacional de maneira sequencial, ou seja cada endereço do vetor vai estar logo após ao atual fisicamente na memória, o que não ocorre na alocação dinâmica da memória, o que se tem é o Sistema Operacional separando espaços de memória aleatoriamente na RAM para alocar as informações o que aumenta o tempo de leitura do dado, mas minimiza o problema de conflito que ocorre com a estrutura linear, e torna o algoritmo um pouco mais tolerante a erros.
@@ -100,6 +100,9 @@ A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é liter
 <p style = "text-align = justify">
     Para auxilio no caminhamento da matriz da maneira em largura, utilizamos a estrutura de dados Fila (queue), para manter o controle dos vertices que devem ou já foram visitados, com finalidade de não repetir caminhos previamente analisados.
 </p>
+
+# Análise de tempo de Execução
+//Pode adicionar uma tabela com os tempo respectivos aq , só uma ideia aaaaaaaaaaaaaaaaa
 
 # Conclusões
 
