@@ -32,8 +32,8 @@ void Pop(Pilha *p, Item *d);
 void PImprime(Pilha *p);
 int Tamanho(Pilha *P);
 
+void MudancadeLocalizacao(signed short int *escolha,int *Linha,int *Coluna);
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem);
-void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item );
 
 #endif
 

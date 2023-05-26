@@ -155,7 +155,7 @@ void CaminhamentoBernoulli(Matriz *M,signed short int *Ordem)
         M->MAT[Linha][Coluna].validacao = true;
         if(M->MAT[Linha][Coluna].item == '?')
         {
-            printf("O algoritmo de Bernoulli encontrou a interroção em: (%d,%d)\n",Linha,Coluna);
+            printf("Bernoulli(%d,%d)\n",Linha,Coluna);
             break;
         }
         else if(M->MAT[Linha][Coluna].item == '*')

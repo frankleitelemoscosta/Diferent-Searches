@@ -28,7 +28,7 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 
         if(M->MAT[dado.Linha][dado.Coluna].item == '?')
         {
-            printf("Foi encontrado a interrogação (linha,Coluna) (%d,%d)\n",dado.Linha,dado.Coluna);
+            printf("Largura (linha,Coluna) (%d,%d)\n",dado.Linha,dado.Coluna);
             return;
         }
         else if(M->MAT[dado.Linha][dado.Coluna].item == '*')
@@ -64,25 +64,6 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
                 int linha = vizinhos[i].Linha;
                 int coluna = vizinhos[i].Coluna;
 
-                /*for(int i = 0 ; i < *Ordem ; i++)
-                {
-                    for(int j = 0 ; j < *Ordem ; j++)
-                    {
-                        if(i != linha || j != coluna){
-                        printf(" %c",M->MAT[i][j].item);
-                        }
-                        else{
-                            printf(" @");
-                        }
-                        
-                    }
-                    printf("\n");
-                }
-                printf("\n");
-
-                getchar();
-                getchar();
-                */    
                 if(linha >= 0 && linha < *Ordem && coluna >= 0 && coluna < *Ordem && M->MAT[linha][coluna].item != '#' && M->MAT[linha][coluna].validacao != true)
                 {
                     M->MAT[linha][coluna].validacao = true;
