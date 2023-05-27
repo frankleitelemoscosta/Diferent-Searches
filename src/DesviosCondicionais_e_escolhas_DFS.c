@@ -49,7 +49,7 @@ void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signe
         }
         if(((*Linha - 1) > -1) && ((*Coluna - 1) > -1))
         {
-            if(M->MAT[*Linha - 1][*Coluna - 1].item != '#'&& M->MAT[*Linha - 1][*Coluna - 1].validacao != true && sinal == false)
+            if(M->MAT[*Linha - 1][*Coluna - 1].item != '#' && M->MAT[*Linha - 1][*Coluna - 1].validacao != true && sinal == false)
             {
                 sinal = true;
                 *escolha = 6;
@@ -125,7 +125,7 @@ void DesviodeParedes(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,si
                 Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
             }
         }
-        else if(((*Linha - 1) > -1) && ((*Coluna - 1) > -1) && *escolha == 6)//diagonal superior esquerda
+        else if((((*Linha - 1) > -1) && ((*Coluna - 1) > -1)) && *escolha == 6)//diagonal superior esquerda
         {
             if(M->MAT[*Linha - 1][*Coluna - 1].item == '#' || M->MAT[*Linha - 1][*Coluna - 1].validacao == true)
             {
@@ -150,7 +150,7 @@ void DesviodeParedes(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,si
         {
             Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
         }
-        else if((*Coluna - 1) < 0 && *escolha == 4)
+        else if(((*Coluna - 1) < 0) && *escolha == 4)
         {
             Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
         }
@@ -166,11 +166,11 @@ void DesviodeParedes(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,si
         {                
                 Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
         }
-        else if(((*Linha - 1) < 0) && ((*Coluna - 1) < 0) && *escolha == 6)
+        else if((((*Linha - 1) < 0) || ((*Coluna - 1) < 0)) && *escolha == 6)
         {
                 Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
         }
-        else if(((*Linha - 1) < 0) && ((*Coluna + 1) >= (*Ordem-1)) && *escolha == 7)
+        else if((((*Linha - 1) < 0) || ((*Coluna + 1) >= (*Ordem-1))) && *escolha == 7)
         {
                 Selecionando(M,Ordem,Linha,Coluna,escolha,Ponteiro,Ponteiro_Item);
         }

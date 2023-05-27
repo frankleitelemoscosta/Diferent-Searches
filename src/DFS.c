@@ -57,7 +57,6 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
     FPVazia(&Ponteiro);
 
     while(parada == true){
-
     //alterando a variavel que identifica se ja passou naquela casa
         M->MAT[Linha][Coluna].validacao = true;
 

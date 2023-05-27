@@ -8,14 +8,6 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
     dado.Linha = 0;
     dado.Coluna = 0;
 
-    for(int i = 0 ; i < *Ordem ; i++)
-    {
-        for(int j = 0 ; j < *Ordem ; j++)
-        {
-            M->MAT[i][j].validacao = false;
-        }
-    }
-
     FFVazia(F);
 
     //Para marcar a posição inicial como ja visitada e enfilheiras para que da próxima vez que for utilizada a fila encontre os vizinhos dessa casa 
@@ -28,7 +20,7 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 
         if(M->MAT[dado.Linha][dado.Coluna].item == '?')
         {
-            printf("Largura (linha,Coluna) (%d,%d)\n",dado.Linha,dado.Coluna);
+            printf("Largura :(linha,Coluna) (%d,%d)\n",dado.Linha,dado.Coluna);
             return;
         }
         else if(M->MAT[dado.Linha][dado.Coluna].item == '*')
@@ -54,12 +46,17 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 
         //criando um pequeno vetor com as possibilidades de caminhamento    
             ItemF vizinhos[] = {
+                {dado.Linha - 1, dado.Coluna},   // Vizinho acima
                 {dado.Linha + 1, dado.Coluna},   // Vizinho abaixo
-                {dado.Linha, dado.Coluna + 1},   // Vizinho esquerda
-                {dado.Linha + 1, dado.Coluna + 1},
+                {dado.Linha, dado.Coluna - 1},   // Vizinho esquerda
+                {dado.Linha, dado.Coluna + 1},
+                {dado.Linha + 1,dado.Coluna + 1},
+                {dado.Linha - 1,dado.Coluna +1},
+                {dado.Linha + 1,dado.Coluna -1},
+                {dado.Linha - 1,dado.Coluna - 1},
             };
 
-            for(int i = 0 ; i < 3 ; i++)
+            for(int i = 0 ; i < 8 ; i++)
             {
                 int linha = vizinhos[i].Linha;
                 int coluna = vizinhos[i].Coluna;
@@ -74,5 +71,5 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 
     //para reiniciar todas as variaveis de validação
         ResetandoValidacao(M,Ordem);
-
+    printf("Saiu do looping\n");
 }

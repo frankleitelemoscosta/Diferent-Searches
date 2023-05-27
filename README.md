@@ -40,7 +40,7 @@ Para resolver o problema foi necessário trazer respostas aos seguintes question
 
 # Lógica Implementada 
 
-## Problemas relacionados a memória.
+## Problemas relacionados a memória
 
 <p style = "text-align = justify">
 A memória é um recurso utilizado pelo Sistema Operacional para manter informações pertinentes a uma aplicação acessiveis para serem manipuladas, e causar algum efeito em uma aplicação em que o usuário requeriu, porem a mesma é um recurso limitado, e em aplicações com uso de uma grande quantidade de informações essa memória pode não suportar a necessidade de espaço necessária para o programa realizar suas operações, com isso uma alternativa que visa aproveitar esse espaço de maneira inteligente é o uso de alocação dinâmica dos espaços para colocar tal massa de dados.Sendo assim neste projeto foi utilizado diferentes estruturas em virtude do problema fornecido apenas algumas estruturas se adequam para atender as execuções a serem feitas para que os algoritmos sejam executados da maneira correta, no decorrer desta documentação será possível entender isso de forma mais clara, visto que vai ser mostrado que não seria possível fazer o algoritmo fornecer a saída correta se não fossem utilizado as estruturas de dados que foram utilizadas, em resumo a resposta para o primeiro questionamento é que essas estruturas são dinâmicas que não possuem alocação sequencial na memória, o que pode trazer um maior custo de acesso do dado na memória, mas que contornará o erro de 'segmentation fault' que pode vir ocorrer com uma estrutura linear, supondo que fosse alocado um vetor de 2000 casas de maneira linear, a memória vai ser separada pelo Sistema Operacional de maneira sequencial, ou seja cada endereço do vetor vai estar logo após ao atual fisicamente na memória, o que não ocorre na alocação dinâmica da memória, o que se tem é o Sistema Operacional separando espaços de memória aleatoriamente na RAM para alocar as informações o que aumenta o tempo de leitura do dado, mas minimiza o problema de conflito que ocorre com a estrutura linear, e torna o algoritmo um pouco mais tolerante a erros.
@@ -48,7 +48,7 @@ A memória é um recurso utilizado pelo Sistema Operacional para manter informa�
 
 <a href = "https://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)"><img src="./img/Miranha-e-as-ras.jpg" width = 100% alt="Miranha interpretando um ponteiro"></a>
 
-## Caminhamento de maneira aleatória:
+## Caminhamento de maneira aleatória
 
 <p style = "text-align = justify">
 Para caminhar de maneira aleatória pela matriz de entrada foi utilizado um recurso da biblioteca time, que é a função rand que seleciona um valor dentro de um intervalo determinado pelo programador e determina um número com base nesse intervalo pegando como base o tempo em segundos desde 1 de Janeiro de 1970 até os tempos atuais. E utilizando a técnica de usar um escopo maior de números, o qual foi extraido do <a href="https://github.com/mpiress/GenerateDataToMaze">GenerateDataToMaze</a> do Michel Pires de número maior do que apenas dois números sendo 0 ou 1 para somar ou subtrair para mudar a linha e a coluna e fazer o algoritmo mudar de posição até que seja encontrado a interrogação, o qual se faz o parametro de parada para o algoritmo, o problema que foi observado foi este:
@@ -102,7 +102,15 @@ A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é liter
 </p>
 
 # Análise de tempo de Execução
-//Pode adicionar uma tabela com os tempo respectivos aq , só uma ideia aaaaaaaaaaaaaaaaa
+
+<img src="./img/dados empiricos do programa com todos os métodos.png" width = 90% alt="Dados empiricos">
+
+<p style = "text-align = justify">
+Esta captura mostra o tempo de execução do algoritmo com os três métodos de caminhamento sendo executados simultaneamente, fazendo uma média destes resultados teremos que na maoiria dos casos este algoritmo termina em 0,022847 segundos.Fazendo uma análise separada teremos diferenças significativas com relação ao tempo de execução do algoritmo,  veja:
+</p>
+
+<img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
+
 
 # Conclusões
 
@@ -110,14 +118,9 @@ A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é liter
 Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, sendo assim temos uma grande variação do tempo quando executamos o algoritmo randomico, veja:
 </p>
 
-<img src="./img/tempo-no-bernoulli.png" width = 90% alt="Dados empiricos">
-
-
 <p style = "text-align = justify">
 porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, veja que os tempos de execução mostram uma pequena variação:
 </p>
-
-<img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
 
 <p style = "text-align = justify">
 Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução muda.
