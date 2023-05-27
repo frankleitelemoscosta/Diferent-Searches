@@ -39,8 +39,6 @@ void MudancadeLocalizacao(signed short int *escolha,int *Linha,int *Coluna)
             *Linha = *Linha + 1;
             *Coluna = *Coluna - 1;
         }
-
-
 }
 
 void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
@@ -60,8 +58,8 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
     while(parada == true){
 
+    //alterando a variavel que identifica se ja passou naquela casa
         M->MAT[Linha][Coluna].validacao = true;
-
 
     //se for encontrado o interrogação o loop é quebrado com o break
         if(M->MAT[Linha][Coluna].item == '?')
@@ -96,5 +94,6 @@ void CaminhamentoDFS(Matriz *M,signed short int *Ordem){
 
     //para reiniciar todas as variaveis de validação
         ResetandoValidacao(M,Ordem);
-    
 }
+
+//fim do código

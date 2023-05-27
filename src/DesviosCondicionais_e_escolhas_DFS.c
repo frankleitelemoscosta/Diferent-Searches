@@ -74,6 +74,7 @@ void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signe
     //fim da tomada de decisão
     aux = false;
 
+    //se não for possível caminhar em nenhum sentido se desimpilha os elementos
     if(sinal == false)
     {
         Pop(Ponteiro,Ponteiro_Item);
@@ -179,3 +180,5 @@ void DesviodeParedes(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,si
         }
 
 }
+
+//fim do código
