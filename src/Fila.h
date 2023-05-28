@@ -3,8 +3,6 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
-#include"matriz.h"
 
 typedef struct ItemF ItemF;
 typedef struct BlockF BlockF;
@@ -37,7 +35,5 @@ bool isVazia(Fila *f);
 void Enfileira(Fila *f, ItemF d);
 void Desenfileira(Fila *f, ItemF *d);
 void FImprime(Fila *f);
-
-void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F);
 
 #endif

@@ -1,4 +1,5 @@
 #include"Fila.h"
+#include"BFS.h"
 
 void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 {
@@ -71,5 +72,4 @@ void CaminhamentoBFS(Matriz *M,signed short int *Ordem,Fila *F)
 
     //para reiniciar todas as variaveis de validação
         ResetandoValidacao(M,Ordem);
-    printf("Saiu do looping\n");
 }

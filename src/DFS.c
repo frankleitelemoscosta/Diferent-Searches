@@ -1,6 +1,7 @@
-#include"PilhaDFS.h"
+#include"Pilha.h"
 #include<stdbool.h>
 #include"DesviosCondicionais_e_escolhas_DFS.h"
+#include"DFS.h"
 
 void MudancadeLocalizacao(signed short int *escolha,int *Linha,int *Coluna)
 {

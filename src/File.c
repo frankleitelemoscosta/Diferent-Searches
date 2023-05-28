@@ -28,7 +28,6 @@ void LeituraTamanho(signed short int *Ordem,FILE **File)
 
     //limpando a memória
         Lixo = (signed short int *)realloc(Lixo,0);
-
 }
 
 //fim do código

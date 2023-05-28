@@ -83,8 +83,6 @@ void Selecionando(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signe
         aux = true;
     }
     }while(aux == true);
-    
-
 }
 
 void DesviodeParedes(Matriz *M,signed short int *Ordem,int *Linha,int *Coluna,signed short int *escolha,Pilha *Ponteiro, Item *Ponteiro_Item){

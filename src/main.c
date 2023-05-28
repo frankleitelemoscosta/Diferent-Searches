@@ -3,10 +3,11 @@
 	#include<stdlib.h>
 	#include"File.h"
 	#include"matriz.h"
-	#include"PilhaDFS.h"
 	#include"Fila.h"
 	#include"Bernoulli.h"
 	#include"time.h"
+	#include"DFS.h"
+	#include"BFS.h"
 //fim
 
 int main()
@@ -19,8 +20,8 @@ int main()
     double tempo_de_uso_CPU;
     srand(time(NULL));
 
-
-    inicio = clock(); // Captura o tempo de início
+	// Captura o tempo de início
+    inicio = clock(); 
 
 	//entra no arquivo de entrada e extrai o tamanho do mesmo
 		LeituraTamanho(&Ordem,&File);
@@ -50,7 +51,8 @@ int main()
 	//aqui é chamado o método que realiza o caminhamento de maneira aleatória
 		CaminhamentoBernoulli(&M,&Ordem);
 
-		fim = clock(); // Captura o tempo de término
+	// Captura o tempo de término
+		fim = clock();
 
 		tempo_de_uso_CPU = ((double) (fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo de execução em segundos
 
