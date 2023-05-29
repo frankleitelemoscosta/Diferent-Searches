@@ -87,21 +87,20 @@ Um caso especial trouxe a necessidade de usar uma estrutura de dados, visto que 
 ## Caminhamento em Largura (BFS): 
 
 <p style = "text-align = justify">
-A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é literalmente realizar uma verificação aos vizinhos da posição corrente, o que se observado iteração a iteração é possivel perceber que as posições visitadas dão a percepção de que se "desenha" a largura da matriz. O BFS começa a partir de um vértice inicial e visita todos os vértices vizinhos desse vértice antes de se mover para os vértices vizinhos dos vizinhos. Esse processo continua até que todos os vértices alcançáveis tenham sido visitados, veja:
+A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é literalmente realizar uma verificação aos vizinhos da posição corrente, o que se observado iteração a iteração é possivel perceber que as posições visitadas dão a percepção de que se "desenha" a largura da matriz. Este algoritmo trabalha com grafo ao enfileirar os elementos relacionando as posições existentes na matriz, alem de uma organização de conexões que são representadas por meio de tal estrutura. O BFS começa a partir de um vértice inicial e visita todos os vértices vizinhos desse vértice antes de se mover para os vértices vizinhos dos vizinhos. Esse processo continua até que todos os vértices alcançáveis tenham sido visitados, veja:
 </p>
 
-
-<img src="./img/BFS-visita.jpeg" width = 35% alt="BFS">
+![Exemplo de um grafo](./img/grafo-gif.gif)
 
 </br>
 
 <img src="./img/BFS.jpeg" width = 35% alt="BFS">
 
 <p style = "text-align = justify">
-    Para auxilio no caminhamento da matriz da maneira em largura, utilizamos a estrutura de dados Fila (queue), para manter o controle dos vertices que devem ou já foram visitados, com finalidade de não repetir caminhos previamente analisados.
+    Para auxilio no caminhamento da matriz da maneira em largura, utilizamos a estrutura de dados Fila (queue), para manter o controle dos vertices que devem ou já foram visitados, com finalidade de não repetir caminhos previamente analisados, a cada iteração se armazena os viziinhos de um vertice na fila e a cada iteração se desinfileira tais vizinhos e se análise os vizinhos do mesmo, e assim se caminha pela matriz até que a interrogação seja encontrada, desta forma foi possível fazer com que a máquina realizasse o caminhamento em largura.
 </p>
 
-# Análise de tempo de Execução
+# Análise de tempo de Execução e exemplo de entrada e saída
 
 <img src="./img/dados empiricos do programa com todos os métodos.png" width = 90% alt="Dados empiricos">
 
@@ -109,21 +108,94 @@ A ideia do caminhamento em largura faz juz ao nome que recebeu, a ideia é liter
 Esta captura mostra o tempo de execução do algoritmo com os três métodos de caminhamento sendo executados simultaneamente, fazendo uma média destes resultados teremos que na maoiria dos casos este algoritmo termina em 0,022847 segundos.Fazendo uma análise separada teremos diferenças significativas com relação ao tempo de execução do algoritmo,  veja:
 </p>
 
-<img src="./img/performace-rodando-o-algoritmo-com-uma-50-por-50.png" width = 90% alt="Dados empiricos">
+<img src="./img/profundidade-tempo.png" width = 90% alt="Dados empiricos">
+
+<p style = "text-align = justify">
+Nesta captura temos o tempo de execução do algoritmo de busca em profundidade(DFS), que mostra que em media esta algoritmo termina com 0,00047266 segundos de execução.
+</p>
+
+<img src="./img/tempo-com-o-BFS.png" width = 90% alt="Dados empiricos">
+
+<p style = "text-align = justify">
+Nesta captura temos o tempo de execução do algoritmo de busca em largura(B  FS) apenas, que mostra que em media esta algoritmo termina com 0,0013322 segundos de execução.
+</p>
+
+<img src="./img/tempo-bernoulli.png" width = 90% alt="Dados empiricos">
+
+<p style = "text-align = justify">
+Nesta captura temos o tempo de execução do algoritmo de busca aleatória apenas, que mostra que em media esta algoritmo termina com 0,0311743 segundos de execução.
+</p>
+
+<p style = "text-align = justify">
+Com base nessas amostras podemos perceber que o tempo de execução muda muita dependendo da estrutura de dados que se usa para auxiliar no processo e do método de busca adotado, teremos tempos distintos de execução, mas neste caso o que tivemos é que o tempo da busca em profundidade se mostrou menor, lembrando que não é uma boa metrica como explicito no livro Projeto de Algoritmos do <a href="https://pt.wikipedia.org/wiki/Nivio_Ziviani">Nivio Ziviane</a>, a conduta correta para aferir o tempo de execução de um código e análisar a quantidade de interações queo mesmo realiza na entrada de dados.
+</p>
+
+<h3>MÁQUINA DE TESTE DESTE PROJETO</h3>
+
+<table style="width: 100%;" border="1">
+        <tr align="center" >
+            <td colspan="2">
+                <div>
+                        <br>
+                        <p class="sizeText color">Notebook 550XDA Sansung</p>
+                        <br>        
+                </div>
+            </td>
+        <tr>
+        <tr align="center">
+            <td>
+               <div>
+                    <br>
+                    <p class="sizeText color">RAM</p>
+                    <br>
+               </div> 
+            </td>
+            <td >
+                <br>
+                    <p class="sizeText color">8Gb DDR4</p>
+                <br>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="width: 20%;">
+                <p class="sizeText color">
+                    <br>
+                    <p class="sizeText color">SO</p>
+                    <br>
+                </p>
+            </td>
+            <td >
+                <br>
+                    <p class="sizeText color">Linux Ubuntu v20.04, 64bits</p>
+                <br>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="width: 20%;">
+                <br>
+                    <p class="sizeText color">    
+                        CPU
+                    </p>
+                <br>
+            </td>
+            <td >
+                <br>
+                    <p class="sizeText color">Intel core i5 11° geração 2,40GHz</p>
+                <br>
+            </td>
+        </tr>
+    </table>
 
 
 # Conclusões
 
 <p style = "text-align = justify">
-Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado podemos ter um tendenciamento a determinada conduta apesar de não ser esperado ser assim, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de bernoulli, não sabemos quais são a quantidade máxima de passos que serão realizados, sendo assim temos uma grande variação do tempo quando executamos o algoritmo randomico, veja:
+Diante dos diferentes cenários de busca aqui relatados é possível perceber que de acordo com a forma que se busca um dado teremos um tempo distinto até chegarmos a um determinado resultado, alem de não ser esperado, mas podemos ter um tendenciamento a determinada conduta, como se mostrou o algoritmo de busca em profundidade, Dos três métodos aqui discutidos e apresentados conseguimos determinar custo apenas para dois deles, visto que não conseguimos fazer previsões com relação a entrada no algoritmo de busca randômica, não sabemos quais são a quantidade máxima de passos que serão realizados, sendo assim temos uma grande variação do tempo quando executamos o algoritmo randomico de uma execução completa para outra.
+Porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, que resultaria em um custo linear no pior dos casos para o método de busca em largura e o método de busca em profundidade, mas neste projeto essa previsão se torna dificil, em virtude das regras, a quantidade de iterações não pode ser estipulada visto que vai depender da organização da matriz de entrada, dependendo da quantidade de perigos e paredes, alem de sua disposição na matriz o custo computacional associado ao algoritmo pode diminuir ou aumentar, tornando impossível determinar um custo com precisão.
 </p>
 
 <p style = "text-align = justify">
-porem ainda sim é possível inferir quais serão a quantidade de passos realizados pela máquina até que a interrogação seja encontrado para os outros dois métodos, veja que os tempos de execução mostram uma pequena variação:
-</p>
-
-<p style = "text-align = justify">
-Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução muda.
+Portanto observando as estruturas aqui utilizadas a forma com que se busca um dado pode mudar muito não só no aspecto da implementação, mas tambem no custo que pode ser gerado para a máquina executar tal busca, variando não só com o tamanho da entrada, mas tambem com relação a organização dos dados, pois de acordo com o lugar que a interrogação se encotrava, ou a quantidade de perigos que o algoritmo passava, o tempo de execução mudava.
 </p>
 
 # Instruções de Compilação do Programa
@@ -150,7 +222,7 @@ Este projeto esta utilizando um arquivo de configuração, este arquivo possui c
     <i>Para a execução do programa utilize <u>make</u> para realizar a compilação e logo após utilize <u>make run</u> para executar o programa</i>
 </p>
 
-# Referencias
+# Referências
 CORMEN, Thomas H. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Editora Elsevier, 2012.
 
 # Autores
@@ -162,17 +234,10 @@ Frank Leite Lemos Costa, Leandro Sousa Costa, João Pedro Freitas alunos de Enge
         <td align = "center" width="50%">
             <a href="https://www.linkedin.com/in/frank-leite-6a6a84198/"><img src="./img/linkedin.png" alt="" style="width: 50% "></a>
         </td>
-        <td align = "center">
-            <a href = "https://wa.me/+5531996449587"><img src="./img/whatsapp.png" alt="" style="width: 50% "></a>
-        </td>
     </tr>
     <tr>
         <td align = "center" width="50%">
             Linkedin
-        </td>
-        <td align = "center">
-            +55(31) 99644-9587
-            <p>Click na foto do whatsapp você será redirecionado diretamente a um chat comigo</p>
         </td>
     </tr>
 </table>
